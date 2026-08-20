@@ -8,7 +8,7 @@ export default function SidebarBrandHeader() {
       <Link to="/catalog/home" aria-label="Open catalog">
         <SidebarDuotoneIcon icon={RiCodeSSlashLine} className="size-5 text-brandcolor-700" />
       </Link>
-      <Link to="/" className="text-[13px] font-semibold tracking-tight">
+      <Link to="/landing" className="text-[13px] font-semibold tracking-tight">
         QuickCode
       </Link>
     </div>

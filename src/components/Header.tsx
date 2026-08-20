@@ -8,7 +8,7 @@ export default function Header() {
         <Link to="/catalog/home" aria-label="Open catalog" className="text-slate-800">
           <RiCodeSSlashLine className="size-6" />
         </Link>
-        <Link to="/" className="font-semibold text-slate-900">
+        <Link to="/landing" className="font-semibold text-slate-900">
           QuickCode
         </Link>
         <nav className="ml-auto flex items-center gap-4">

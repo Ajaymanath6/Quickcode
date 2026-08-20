@@ -17,8 +17,9 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<Navigate to="/landing" replace />} />
         <Route element={<MainLayout />}>
-          <Route path="/" element={<LandingPage />} />
+          <Route path="/landing" element={<LandingPage />} />
         </Route>
         <Route path="/admin" element={<Navigate to="/admin/canvas" replace />} />
         <Route path="/catalog" element={<Navigate to="/catalog/home" replace />} />

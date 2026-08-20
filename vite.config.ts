@@ -17,6 +17,7 @@ export default defineConfig({
     environment: 'jsdom',
   },
   server: {
+    open: '/landing',
     proxy: {
       '/canvas': 'http://127.0.0.1:4302',
       '/generate-code': 'http://127.0.0.1:4302',
