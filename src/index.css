@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brandcolor-50: #f4f6f8;
+  --brandcolor-100: #e8ecf1;
+  --brandcolor-200: #d0d8e2;
+  --brandcolor-500: #3d4f63;
+  --brandcolor-700: #243140;
+  --brandcolor-900: #121820;
+  --brandcolor-warning: #c47b16;
+  --brandcolor-warning-soft: #f8edd9;
+  --canvas-grid: #e2e8f0;
+  --canvas-fill: #f4f6f8;
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-lg: 20px;
+  --line-height-xs: 16px;
+  --line-height-sm: 20px;
+  --line-height-base: 24px;
+  --line-height-lg: 28px;
+  --shadow-sm: 0 1px 2px rgb(18 24 32 / 0.06);
+  --shadow-md: 0 4px 12px rgb(18 24 32 / 0.08);
+  --shadow-lg: 0 12px 24px rgb(18 24 32 / 0.12);
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+}
+
+body {
+  margin: 0;
+  color: var(--brandcolor-900);
+  background: var(--brandcolor-50);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
+}
