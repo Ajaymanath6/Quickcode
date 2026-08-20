@@ -1,0 +1,19 @@
+{
+  "tokens": [
+    {
+      "id": "primary",
+      "keywords": ["button", "primary", "action"],
+      "help": "Primary actions use bg-brandcolor-700 text-white. Label is 1–3 words."
+    },
+    {
+      "id": "card-pad",
+      "keywords": ["card", "padding", "inset"],
+      "help": "Cards use a single outer p-card-pad-default. Do not nest extra p-* on children."
+    },
+    {
+      "id": "gap",
+      "keywords": ["gap", "spacing", "stack"],
+      "help": "Stacks use gap-micro or gap-tight. Section breaks use gap-section or gap-hero."
+    }
+  ]
+}

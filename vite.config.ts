@@ -1,3 +1,4 @@
+/// <reference types="vitest/config" />
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { defineConfig } from 'vite'
@@ -10,6 +11,19 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(dirname, './src'),
+    },
+  },
+  test: {
+    environment: 'jsdom',
+  },
+  server: {
+    proxy: {
+      '/canvas': 'http://127.0.0.1:4302',
+      '/generate-code': 'http://127.0.0.1:4302',
+      '/layout': 'http://127.0.0.1:4302',
+      '/health': 'http://127.0.0.1:4302',
+      '/generate': 'http://127.0.0.1:4302',
+      '/api': 'http://127.0.0.1:4301',
     },
   },
 })

@@ -13,6 +13,7 @@ type PlanNode = {
   searchPlaceholder?: string
   neutralButtonLabel?: string
   navSections?: NavSection[]
+  sections?: { heading: string; items: { label: string; iconKey?: string }[] }[]
 }
 
 export function mapCanvasPlanToNodes(
@@ -61,9 +62,14 @@ export function mapCanvasPlanToNodes(
           trailingIconKey: item.trailingIconKey ?? 'settings',
           searchPlaceholder: item.searchPlaceholder ?? 'Search',
           neutralButtonLabel: item.neutralButtonLabel ?? 'New',
-          navSections: item.navSections ?? [
-            { title: 'Main', items: [{ label: 'Home', iconKey: 'home' }] },
-          ],
+          navSections:
+            item.navSections ??
+            (item.sections && item.sections.length > 0
+              ? item.sections.map((section) => ({
+                  title: section.heading,
+                  items: section.items,
+                }))
+              : [{ title: 'Main', items: [{ label: 'Home', iconKey: 'home' }] }]),
         }
       case 'htmlSnippet':
         return {

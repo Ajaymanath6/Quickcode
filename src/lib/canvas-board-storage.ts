@@ -1,4 +1,6 @@
 import type { CanvasNode } from '@/lib/canvas-types'
+import type { CatalogCardModel, HtmlSnippetNode } from '@/lib/canvas-types'
+import { catalogCardDisplayName, catalogCardSourceHtml } from '@/lib/catalog-entry'
 
 const BOARD_KEY = 'quickcode.canvas.board'
 
@@ -73,4 +75,39 @@ export function loadBoard(): CanvasNode[] {
 
 export function saveBoard(nodes: CanvasNode[]): void {
   localStorage.setItem(BOARD_KEY, JSON.stringify(nodes))
+}
+
+export function addCatalogCardToBoard(
+  card: CatalogCardModel,
+  position: { x: number; y: number } = { x: 180, y: 180 },
+): { nodeId: string; created: boolean } {
+  const id = card.entry.id ?? card.entry.componentId
+  const board = loadBoard()
+  const existing = board.find(
+    (node) => node.kind === 'htmlSnippet' && node.catalogId === id,
+  )
+  if (existing) {
+    return { nodeId: existing.id, created: false }
+  }
+  const node: HtmlSnippetNode = {
+    id: crypto.randomUUID(),
+    kind: 'htmlSnippet',
+    catalogId: id,
+    x: position.x,
+    y: position.y,
+    label: catalogCardDisplayName(card),
+    html: catalogCardSourceHtml(card),
+    widthPx: 420,
+    shellHeightPx: 280,
+  }
+  saveBoard([...board, node])
+  return { nodeId: node.id, created: true }
+}
+
+export function pruneCatalogNodeFromBoard(catalogId: string): void {
+  saveBoard(
+    loadBoard().filter(
+      (node) => node.kind !== 'htmlSnippet' || node.catalogId !== catalogId,
+    ),
+  )
 }

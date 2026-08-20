@@ -63,6 +63,7 @@ export type HtmlSnippetNode = NodeBase & {
   kind: 'htmlSnippet'
   label: string
   html: string
+  catalogId?: string
   shellHeightPx?: number
   widthPx?: number
   userResized?: boolean
@@ -97,6 +98,14 @@ export type CatalogEntry = {
   thumbnailPath?: string
   publishedAt?: string
   isLayout?: boolean
+}
+
+export type BlueprintDocument = Record<string, unknown>
+
+export type CatalogCardModel = {
+  entry: CatalogEntry
+  blueprint: BlueprintDocument | null
+  loadError?: string
 }
 
 export type ViewportState = {

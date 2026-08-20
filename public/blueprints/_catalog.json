@@ -1,0 +1,29 @@
+[
+  {
+    "id": "canvas:card:cb9c84af-fc00-4261-ae08-2acb8cce493f",
+    "componentId": "canvas:card:cb9c84af-fc00-4261-ae08-2acb8cce493f",
+    "label": "Product card",
+    "name": "Product card",
+    "imageAlt": "Product card",
+    "sourceHtml": "<article class=\"rounded-xl border border-brandcolor-200 bg-white p-4 shadow-sm\">\n  <p class=\"text-xs text-brandcolor-500\">Catalog preview</p>\n  <h3 class=\"mt-1 text-base font-semibold text-brandcolor-900\">Product card</h3>\n  <p class=\"mt-2 text-sm text-brandcolor-700\">A compact card used across marketing and admin surfaces.</p>\n</article>",
+    "description": "cfhd",
+    "sealed": true,
+    "kind": "component",
+    "blueprint": {
+      "id": "cb9c84af-fc00-4261-ae08-2acb8cce493f",
+      "kind": "card",
+      "x": 120,
+      "y": 120,
+      "title": "Product card",
+      "subtitle": "Catalog preview",
+      "body": "A compact card used across marketing and admin surfaces.",
+      "data": {
+        "imageAlt": "Product card"
+      }
+    },
+    "hasBlueprint": true,
+    "blueprintPath": "public/blueprints/canvas-card-cb9c84af-fc00-4261-ae08-2acb8cce493f.json",
+    "publishedAt": "2026-08-20T11:46:48.977288+00:00",
+    "isLayout": false
+  }
+]

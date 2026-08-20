@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import type { PointerEvent as ReactPointerEvent, ReactNode } from 'react'
+import type { DragEvent as ReactDragEvent, PointerEvent as ReactPointerEvent, ReactNode } from 'react'
 import {
   RiCursorLine,
   RiCheckboxBlankLine,
@@ -9,6 +9,7 @@ import {
   RiAspectRatioLine,
   RiChat1Line,
 } from '@remixicon/react'
+import { useSearchParams } from 'react-router-dom'
 import CanvasGenerationSkeleton from '@/components/canvas/CanvasGenerationSkeleton'
 import CanvasPublishModal, {
   CanvasCodeModal,
@@ -18,6 +19,7 @@ import ComponentsCanvasPromptPanel from '@/components/canvas/ComponentsCanvasPro
 import { useCanvasChrome } from '@/context/CanvasChromeContext'
 import { useComponentsCanvasAi } from '@/context/ComponentsCanvasAiContext'
 import { loadBoard, saveBoard } from '@/lib/canvas-board-storage'
+import { CATALOG_DRAG_MIME, readCatalogDrag } from '@/lib/catalog-drag'
 import {
   GRID_SIZE,
   SCALE_STEP,
@@ -59,8 +61,10 @@ function nodeToolbarLabel(node: CanvasNode): string {
 }
 
 export default function ComponentsCanvasSurface() {
+  const [searchParams] = useSearchParams()
   const viewportRef = useRef<HTMLDivElement>(null)
   const nodesRef = useRef<CanvasNode[]>([])
+  const focusedFromUrlRef = useRef<string | null>(null)
   const { tool, setTool, spaceHeld, setSpaceHeld, setHideBlockChrome, requestPromptFocus } =
     useCanvasChrome()
   const ai = useComponentsCanvasAi()
@@ -143,6 +147,16 @@ export default function ComponentsCanvasSurface() {
     setSelectedId(ids[0] ?? null)
     setViewport(fitViewportToNodes(targets, el.clientWidth, el.clientHeight, 120))
   }, [])
+
+  useEffect(() => {
+    const focusId = searchParams.get('focus')
+    if (!focusId || focusedFromUrlRef.current === focusId) {
+      return
+    }
+    focusedFromUrlRef.current = focusId
+    const frame = window.requestAnimationFrame(() => focusBlocks([focusId]))
+    return () => window.cancelAnimationFrame(frame)
+  }, [focusBlocks, searchParams])
 
   useEffect(() => {
     ai.registerBoardApi({
@@ -380,6 +394,41 @@ export default function ComponentsCanvasSurface() {
     })
   }
 
+  const onCatalogDrop = (event: ReactDragEvent<HTMLDivElement>) => {
+    const payload = readCatalogDrag(event)
+    const el = viewportRef.current
+    if (!payload || !el) {
+      return
+    }
+    event.preventDefault()
+    const rect = el.getBoundingClientRect()
+    const world = screenToWorld(
+      viewport,
+      event.clientX - rect.left,
+      event.clientY - rect.top,
+    )
+    const existing = nodesRef.current.find(
+      (node) => node.kind === 'htmlSnippet' && node.catalogId === payload.catalogId,
+    )
+    if (existing) {
+      focusBlocks([existing.id])
+      return
+    }
+    const created: HtmlSnippetNode = {
+      id: crypto.randomUUID(),
+      kind: 'htmlSnippet',
+      catalogId: payload.catalogId,
+      x: Math.max(0, Math.min(WORLD_W - 420, world.x)),
+      y: Math.max(0, Math.min(WORLD_H - 280, world.y)),
+      label: payload.label,
+      html: payload.sourceHtml,
+      widthPx: 420,
+      shellHeightPx: 280,
+    }
+    setNodes((current) => [...current, created])
+    setSelectedId(created.id)
+  }
+
   const handleDelete = async (node: CanvasNode) => {
     setNodes((current) => current.filter((item) => item.id !== node.id))
     setSelectedId((current) => (current === node.id ? null : current))
@@ -441,6 +490,13 @@ export default function ComponentsCanvasSurface() {
         onPointerMove={onViewportPointerMove}
         onPointerUp={onViewportPointerUp}
         onPointerCancel={onViewportPointerUp}
+        onDragOver={(event) => {
+          if (Array.from(event.dataTransfer.types).includes(CATALOG_DRAG_MIME)) {
+            event.preventDefault()
+            event.dataTransfer.dropEffect = 'copy'
+          }
+        }}
+        onDrop={onCatalogDrop}
         onContextMenu={(event) => event.preventDefault()}
       >
         <div

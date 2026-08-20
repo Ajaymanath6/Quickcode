@@ -1,0 +1,13 @@
+---
+description: Never commit VSIX files or vendor the editor extension into this repo
+alwaysApply: true
+---
+
+# Extension stays out of this git tree
+
+- Do not add an `extension/` or `a2ui-generator/` folder to QuickCode.
+- Do not copy or commit `*.vsix` (including Downloads copies like `a2ui-generator-0.1.0 (1).vsix`).
+- On `git add` / `git commit`, never stage VSIX installers, extension `node_modules`, or VSIX `out/` build artifacts.
+- If a `.vsix` appears in `git status`, unstage it and leave it ignored.
+
+The A2UI extension is installed in Cursor from a local VSIX. This repo only hosts the web app and the agent on port 4302 (`a2ui.agentUrl`).

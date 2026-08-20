@@ -9,7 +9,7 @@ import { normalizeCatalogEntry } from '@/lib/catalog-entry'
 
 const CATALOG_KEY = 'quickcode.canvas.catalog'
 
-function readCatalog(): CatalogEntry[] {
+export function readLocalCatalog(): CatalogEntry[] {
   try {
     const raw = localStorage.getItem(CATALOG_KEY)
     if (!raw) {
@@ -25,8 +25,12 @@ function readCatalog(): CatalogEntry[] {
   }
 }
 
-function writeCatalog(entries: CatalogEntry[]): void {
+export function writeLocalCatalog(entries: CatalogEntry[]): void {
   localStorage.setItem(CATALOG_KEY, JSON.stringify(entries.map(normalizeCatalogEntry)))
+}
+
+function safeBlueprintFilename(componentId: string): string {
+  return `${componentId.replace(/[^a-zA-Z0-9_.-]/g, '-')}.json`
 }
 
 export type PublishPayload = {
@@ -40,15 +44,62 @@ export type PublishPayload = {
 }
 
 export async function fetchCatalogIndex(): Promise<CatalogEntry[]> {
+  try {
+    const response = await fetch('/api/catalog')
+    if (response.ok) {
+      const parsed: unknown = await response.json()
+      if (Array.isArray(parsed)) {
+        return (parsed as CatalogEntry[]).map(normalizeCatalogEntry)
+      }
+    }
+  } catch {
+    // helper down
+  }
   await delay(40)
-  return readCatalog()
+  return readLocalCatalog()
 }
 
 export async function publishToCatalog(payload: PublishPayload): Promise<{
   componentId: string
 }> {
+  try {
+    const response = await fetch('/api/publish', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    })
+    if (response.ok) {
+      const body = (await response.json()) as { componentId: string }
+      const local = readLocalCatalog()
+      const next = normalizeCatalogEntry({
+        componentId: payload.componentId,
+        id: payload.componentId,
+        label: payload.label,
+        name: payload.label,
+        sourceHtml: payload.sourceHtml,
+        description: payload.description,
+        sealed: payload.sealed,
+        kind: payload.kind,
+        blueprint: payload.blueprint,
+        hasBlueprint: true,
+        blueprintPath: `public/blueprints/${safeBlueprintFilename(payload.componentId)}`,
+        publishedAt: new Date().toISOString(),
+        isLayout: payload.kind === 'layout',
+      })
+      const index = local.findIndex((entry) => entry.componentId === payload.componentId)
+      if (index >= 0) {
+        local[index] = next
+      } else {
+        local.push(next)
+      }
+      writeLocalCatalog(local)
+      return { componentId: body.componentId || payload.componentId }
+    }
+  } catch {
+    // fall through to localStorage
+  }
   await delay(80)
-  const entries = readCatalog()
+  const entries = readLocalCatalog()
   const next = normalizeCatalogEntry({
     componentId: payload.componentId,
     id: payload.componentId,
@@ -60,7 +111,7 @@ export async function publishToCatalog(payload: PublishPayload): Promise<{
     kind: payload.kind,
     blueprint: payload.blueprint,
     hasBlueprint: true,
-    blueprintPath: `blueprints/${payload.componentId}.json`,
+    blueprintPath: `blueprints/${safeBlueprintFilename(payload.componentId)}`,
     publishedAt: new Date().toISOString(),
     isLayout: payload.kind === 'layout',
   })
@@ -70,13 +121,24 @@ export async function publishToCatalog(payload: PublishPayload): Promise<{
   } else {
     entries.push(next)
   }
-  writeCatalog(entries)
+  writeLocalCatalog(entries)
   return { componentId: payload.componentId }
 }
 
 export async function deleteCatalogEntry(componentId: string): Promise<void> {
-  await delay(40)
-  writeCatalog(readCatalog().filter((entry) => entry.componentId !== componentId))
+  try {
+    const response = await fetch(`/api/catalog/${encodeURIComponent(componentId)}`, {
+      method: 'DELETE',
+    })
+    if (!response.ok) {
+      throw new Error(`Catalog delete failed (${response.status})`)
+    }
+  } catch {
+    // Keep the local fallback usable when the helper is not running.
+  }
+  writeLocalCatalog(
+    readLocalCatalog().filter((entry) => entry.componentId !== componentId),
+  )
 }
 
 export async function publishCanvasNode(

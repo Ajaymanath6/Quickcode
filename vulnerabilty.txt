@@ -1,0 +1,8 @@
+LLM agent secret scan
+
+- llm-agent/.env.llm must never be committed (listed in .gitignore).
+- llm-agent/.env.llm.example contains placeholders only (VERTEX_MOCK=1, empty GCP/AWS names).
+- Vertex Method 2 reads AWS Secrets Manager at runtime; credential_json is not stored in this repo.
+- Do not copy GCP service-account JSON or AWS keys into source files or Docker build args.
+- publish-helper atomically writes and deletes only sanitized files under public/blueprints; no secrets.
+- Catalog HTML is sanitized with DOMPurify before preview rendering. Raw HTML is shown only as text in code panels.

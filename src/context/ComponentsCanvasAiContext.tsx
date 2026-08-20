@@ -103,7 +103,11 @@ export function ComponentsCanvasAiProvider({ children }: { children: ReactNode }
     try {
       if (mode === 'plan') {
         const response = await postCanvasPlan(payload)
-        const created = mapCanvasPlanToNodes(response.nodes, skeleton.x, skeleton.y)
+        const created = mapCanvasPlanToNodes(
+          response.plan?.nodes ?? response.nodes ?? [],
+          skeleton.x,
+          skeleton.y,
+        )
         api.appendNodes(created)
         api.focusBlocks(created.map((node) => node.id))
         setHistory((current) => [

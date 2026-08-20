@@ -1,0 +1,24 @@
+{
+  "chunks": [
+    {
+      "id": "color",
+      "keywords": ["color", "brand", "primary", "button"],
+      "text": "Fills brandcolor-50/100, strokes brandcolor-200, text brandcolor-900, actions brandcolor-700."
+    },
+    {
+      "id": "spacing",
+      "keywords": ["spacing", "gap", "padding", "card"],
+      "text": "Semantic spacing: gap-micro, p-cozy, p-card-pad-default. One outer inset only."
+    },
+    {
+      "id": "type",
+      "keywords": ["type", "font", "heading", "label"],
+      "text": "Headings short. Body in brandcolor-700. Never paste the full user brief into a title."
+    },
+    {
+      "id": "layout",
+      "keywords": ["layout", "sidebar", "row", "split"],
+      "text": "Layout plans may only reference published catalog ids from the client allowlist."
+    }
+  ]
+}

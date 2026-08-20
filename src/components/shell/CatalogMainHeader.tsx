@@ -7,13 +7,16 @@ function titleForPath(pathname: string, search: string): string {
     return new URLSearchParams(search).get('view') === 'layout' ? 'Layout workspace' : 'Components canvas'
   }
   if (pathname === '/catalog/home') {
-    return 'Home'
+    return 'Library'
   }
   if (pathname === '/catalog/all') {
     return 'All components'
   }
   if (pathname === '/catalog/layouts') {
     return 'Layouts'
+  }
+  if (pathname === '/catalog/bookmarks') {
+    return 'Bookmarks'
   }
   if (pathname.endsWith('/colors')) {
     return 'Colors'

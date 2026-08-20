@@ -1,0 +1,7 @@
+import os
+
+THEME_CONTEXT_MODE = os.environ.get("THEME_CONTEXT_MODE", "smart")
+THEME_CONTEXT_MAX_CHARS = int(os.environ.get("THEME_CONTEXT_MAX_CHARS", "4000"))
+THEME_CONTEXT_EXTENDED_MAX_CHARS = int(
+    os.environ.get("THEME_CONTEXT_EXTENDED_MAX_CHARS", "8000")
+)
