@@ -12,10 +12,13 @@ const NAV_LINKS = [
 export default function Header() {
   return (
     <header className="shrink-0 border-b border-brandcolor-strokeweak bg-brandcolor-white font-lato">
-      <div className="mx-auto flex max-w-6xl items-center gap-6 px-4 py-3">
+      <div className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
         <BrandLogo imgClassName="h-9 w-auto max-w-[200px] object-contain object-left" />
 
-        <nav className="hidden items-center gap-5 md:flex" aria-label="Primary">
+        <nav
+          className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-5 md:flex"
+          aria-label="Primary"
+        >
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
@@ -27,7 +30,7 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="ml-auto flex shrink-0 items-center gap-2 sm:gap-3">
+        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
           <a
             href="#signup"
             className="rounded-none border border-brandcolor-primary bg-brandcolor-primary px-3 py-1.5 text-sm font-medium text-brandcolor-textstrong transition-colors hover:bg-brandcolor-primaryhover"

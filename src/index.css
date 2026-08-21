@@ -159,6 +159,36 @@ body {
   background-size: 120px 40px;
 }
 
+@keyframes landing-logo-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.landing-logo-marquee {
+  animation: landing-logo-marquee 40s linear infinite;
+}
+
+.landing-logo-marquee-fade {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 12%,
+    #000 88%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 12%,
+    #000 88%,
+    transparent
+  );
+}
+
 /* Light patterned page sections (fine diagonal weave / diamond grid) */
 .landing-pattern {
   background-color: #f3f3f3;

@@ -19,6 +19,7 @@ import {
   RiMap2Line,
   RiMoneyDollarCircleLine,
   RiSearchEyeLine,
+  RiSettings3Line,
   RiShieldStarLine,
   RiShieldUserLine,
   RiSmartphoneLine,
@@ -177,6 +178,126 @@ const TESTIMONIALS = [
   },
 ] as const
 
+const TRUSTED_LOGOS = [
+  {
+    name: 'United States Forest Service',
+    src: 'https://images.ctfassets.net/818uh3qw7u4q/6NS7bT59SV3xwtRtluonn9/871f67e6108121da78b6fc957fccb4ca/United_States_Forest_Service-Black_.svg',
+  },
+  {
+    name: 'U.S. Securities and Exchange Commission',
+    src: 'https://images.ctfassets.net/818uh3qw7u4q/3hK1IJNXc69helG5s0D0U9/4e52458bea6ffd6ce25a3739d22bfc95/SEC.svg',
+  },
+  {
+    name: 'United States Courts',
+    src: 'https://images.ctfassets.net/818uh3qw7u4q/yWt7FR0T14dnbvAuGJ7OA/9c2cbf804dfe43a558378be86edfed46/united-states-courts.svg',
+  },
+  {
+    name: 'Charter Communications',
+    src: 'https://images.ctfassets.net/818uh3qw7u4q/14PtSSZrAaWSqezx44yxYr/60a8d05483a36f9baca9be784c0e9dbe/Charter_Communications_Logo_Black.svg',
+  },
+  {
+    name: 'U.S. Department of Defense',
+    src: 'https://images.ctfassets.net/818uh3qw7u4q/3scYuNwsGZmKmzZBpSk0M5/acef3971bbf7d83849813b693360958f/DoD.svg',
+  },
+  {
+    name: 'Elastic',
+    src: 'https://images.ctfassets.net/818uh3qw7u4q/7Ghs2yeV1zhRsY5PKSn7Vd/ab0db980c10a5c62cb2b3873e133f1ac/elastic_Black.svg',
+  },
+] as const
+
+const FEATURE_HIGHLIGHTS = [
+  {
+    title: 'Supports native documents, PSTs, MBOX, Load file productions, & more',
+    graphic: 'formats' as const,
+  },
+  {
+    title: 'Automatic processing at no extra charge',
+    graphic: 'processing' as const,
+  },
+  {
+    title: 'Pay-as-you-go, transparent, and prorated pricing',
+    graphic: 'formats' as const,
+  },
+  {
+    title: 'Unlimited collaborators, no user fees',
+    graphic: 'formats' as const,
+  },
+] as const
+
+const FEATURE_CARD_ICONS = [
+  { src: '/landing/feature-icon-pst.png', alt: 'PST' },
+  { src: '/landing/feature-icon-native.png', alt: 'Native documents' },
+  { src: '/landing/feature-icon-mbox.png', alt: 'MBOX' },
+  { src: '/landing/feature-icon-lfp.png', alt: 'Load file production' },
+] as const
+
+/** Bird mark on top; other format icons in a row below. */
+function FeatureFormatsGraphic() {
+  return (
+    <div className="flex min-h-[200px] w-full flex-col items-center justify-center gap-5 sm:min-h-[220px]" aria-hidden>
+      <img
+        src="/landing/feature-icon-center.png"
+        alt=""
+        className="h-16 w-16 object-contain sm:h-20 sm:w-20"
+        width={80}
+        height={80}
+        loading="lazy"
+        decoding="async"
+      />
+      <div className="flex w-full items-center justify-center gap-2.5">
+        {FEATURE_CARD_ICONS.map((icon) => (
+          <img
+            key={icon.src}
+            src={icon.src}
+            alt=""
+            className="h-8 w-8 object-contain sm:h-9 sm:w-9"
+            width={36}
+            height={36}
+            loading="lazy"
+            decoding="async"
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
+/** Format icons (no center mark) + settings, conveying $0 processing. */
+function FeatureProcessingGraphic() {
+  return (
+    <div className="flex min-h-[200px] w-full flex-col items-center justify-center gap-4 sm:min-h-[220px]" aria-hidden>
+      <div className="flex w-full flex-wrap items-center justify-center gap-2.5">
+        {FEATURE_CARD_ICONS.map((icon) => (
+          <img
+            key={icon.src}
+            src={icon.src}
+            alt=""
+            className="h-8 w-8 object-contain sm:h-9 sm:w-9"
+            width={36}
+            height={36}
+            loading="lazy"
+            decoding="async"
+          />
+        ))}
+        <RiSettings3Line
+          className="size-8 text-brandcolor-textweak sm:size-9"
+          aria-hidden
+        />
+      </div>
+      <p className="font-catamaran text-4xl font-bold tracking-tight text-brandcolor-secondary sm:text-5xl">
+        $0
+      </p>
+    </div>
+  )
+}
+
+function FeatureCardGraphic({ variant }: { variant: 'formats' | 'processing' }) {
+  if (variant === 'processing') {
+    return <FeatureProcessingGraphic />
+  }
+  return <FeatureFormatsGraphic />
+}
+
 function SectionTitle({ children }: { children: string }) {
   return (
     <h2 className="font-catamaran text-center text-4xl font-semibold tracking-tight text-brandcolor-textstrong sm:text-[2.5rem]">
@@ -247,7 +368,7 @@ export default function LandingPage() {
     <div className="font-lato">
       <section
         id="features"
-        className="landing-hero relative isolate overflow-hidden px-4 pb-10 pt-24 text-brandcolor-white sm:px-8"
+        className="landing-hero relative isolate overflow-hidden px-4 py-24 text-brandcolor-white sm:px-8"
       >
         <div className="pointer-events-none absolute inset-0 -z-10 bg-[#1a1a1a]" aria-hidden />
         <div className="landing-hero-waves pointer-events-none absolute inset-0 -z-10 opacity-40" aria-hidden />
@@ -295,10 +416,64 @@ export default function LandingPage() {
       </section>
 
       <section
+        className="relative overflow-hidden bg-[#1a1a1a] px-4 py-[110px] text-brandcolor-white sm:px-8"
+        aria-labelledby="trusted-by-heading"
+      >
+        <div className="mx-auto max-w-5xl text-center">
+          <h2
+            id="trusted-by-heading"
+            className="font-catamaran text-[14px] font-bold tracking-tight text-brandcolor-white"
+          >
+            Trusted by all
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl font-lato text-[25px] leading-snug text-white/70">
+            The World&apos;s Most Influential
+            <br />
+            Corporations and Government Agencies
+          </p>
+        </div>
+
+        <div className="landing-logo-marquee-fade mt-12 overflow-hidden">
+          <div className="landing-logo-marquee flex w-max items-center gap-16 pr-16">
+            {[...TRUSTED_LOGOS, ...TRUSTED_LOGOS].map((logo, index) => (
+              <img
+                key={`${logo.name}-${index}`}
+                src={logo.src}
+                alt={logo.name}
+                className="h-[52px] w-auto max-w-[208px] shrink-0 object-contain opacity-70 brightness-0 invert sm:h-[62px] sm:max-w-[234px]"
+                width={234}
+                height={62}
+                loading="lazy"
+                decoding="async"
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section
         id="why"
         className="landing-pattern relative px-4 py-16 text-brandcolor-textstrong sm:px-8 sm:py-20"
       >
-        <div className="mx-auto max-w-5xl">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {FEATURE_HIGHLIGHTS.map((item) => (
+              <article
+                key={item.title}
+                className="flex h-full min-h-[340px] flex-col border border-brandcolor-strokeweak bg-brandcolor-white p-6 sm:min-h-[380px]"
+              >
+                <div className="flex flex-1 flex-col justify-start">
+                  <FeatureCardGraphic variant={item.graphic} />
+                </div>
+                <p className="mt-auto pt-5 font-lato text-[16px] font-semibold leading-snug text-brandcolor-textstrong">
+                  {item.title}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <div className="mx-auto mt-16 max-w-5xl">
           <WhyBrandTitle />
           <p className="mx-auto mt-5 max-w-2xl text-center text-base text-brandcolor-textweak sm:text-lg">
             Feature-rich eDiscovery with transparent and affordable pricing.
