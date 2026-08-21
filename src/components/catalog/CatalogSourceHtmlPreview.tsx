@@ -30,7 +30,7 @@ export default function CatalogSourceHtmlPreview({
   }
 
   return (
-    <div className="flex h-full min-h-28 items-center justify-center text-xs text-brandcolor-500">
+    <div className="flex h-full min-h-28 items-center justify-center text-xs text-brandcolor-textweak">
       No preview
     </div>
   )

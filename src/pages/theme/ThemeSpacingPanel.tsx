@@ -34,22 +34,22 @@ export default function ThemeSpacingPanel() {
       {SPACING_KEYS.map((key) => (
         <section
           key={key}
-          className="flex items-center gap-4 rounded-xl border border-brandcolor-200 bg-white p-4"
+          className="flex items-center gap-4 rounded-xl border border-brandcolor-strokeweak bg-white p-4"
         >
           <div
-            className="shrink-0 rounded bg-brandcolor-700"
+            className="shrink-0 rounded bg-brandcolor-primary"
             style={{ width: theme.draft.spacing[key], height: '16px' }}
           />
-          <label className="min-w-0 flex-1 text-[13px] text-brandcolor-700">
+          <label className="min-w-0 flex-1 text-[13px] text-brandcolor-textstrong">
             {key}
-            <span className="ml-2 text-brandcolor-500">{HELP[key]}</span>
+            <span className="ml-2 text-brandcolor-textweak">{HELP[key]}</span>
             <input
-              className="mt-1 w-full rounded-md border border-brandcolor-200 px-2 py-1 font-mono text-[13px]"
+              className="mt-1 w-full rounded-md border border-brandcolor-strokeweak px-2 py-1 font-mono text-[13px]"
               value={theme.draft.spacing[key]}
               onChange={(event) => update(key, event.target.value)}
             />
             {theme.errors[`space:${key}`] ? (
-              <span className="text-[11px] text-brandcolor-warning">
+              <span className="text-[11px] text-brandcolor-banner-warning-button">
                 {theme.errors[`space:${key}`]}
               </span>
             ) : null}

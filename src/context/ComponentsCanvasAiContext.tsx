@@ -3,6 +3,8 @@ import type { ReactNode } from 'react'
 import type { CanvasNode, Rect } from '@/lib/canvas-types'
 import { mapCanvasPlanToNodes } from '@/lib/map-canvas-plan-to-nodes'
 import { sanitizeCanvasHtml } from '@/lib/sanitize-canvas-html'
+import { useThemeEngine } from '@/context/ThemeEngineContext'
+import { themeSnapshotFromMaps } from '@/lib/theme/theme-storage'
 import { postCanvasGenerateHtml } from '@/services/components-canvas-html'
 import { postCanvasPlan } from '@/services/components-canvas-llm'
 
@@ -38,15 +40,10 @@ type ComponentsCanvasAiValue = {
   registerBoardApi: (api: CanvasBoardApi) => void
 }
 
-const THEME_SNAPSHOT: Record<string, string> = {
-  brandcolor700: '#243140',
-  brandcolor50: '#f4f6f8',
-  guidelines: 'Ink/slate surfaces, white shells, no purple AI aesthetic.',
-}
-
 const ComponentsCanvasAiContext = createContext<ComponentsCanvasAiValue | null>(null)
 
 export function ComponentsCanvasAiProvider({ children }: { children: ReactNode }) {
+  const theme = useThemeEngine()
   const boardApiRef = useRef<CanvasBoardApi | null>(null)
   const [mode, setMode] = useState<AiMode>('plan')
   const [draft, setDraft] = useState('')
@@ -98,7 +95,7 @@ export function ComponentsCanvasAiProvider({ children }: { children: ReactNode }
       history,
       extendedDesignContext,
       spacingEnforcement,
-      themeSnapshot: THEME_SNAPSHOT,
+      themeSnapshot: themeSnapshotFromMaps(theme.draft),
     }
     try {
       if (mode === 'plan') {
@@ -167,6 +164,7 @@ export function ComponentsCanvasAiProvider({ children }: { children: ReactNode }
     mentionedIds,
     mode,
     spacingEnforcement,
+    theme.draft,
   ])
 
   const value = useMemo(

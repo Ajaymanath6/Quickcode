@@ -366,7 +366,7 @@ export default function ComponentsCanvasSurface() {
         x: frameDraft.x,
         y: frameDraft.y,
         label: 'Frame',
-        html: '<div class="p-4 text-sm text-brandcolor-700">Empty frame</div>',
+        html: '<div class="p-4 text-sm text-brandcolor-textstrong">Empty frame</div>',
         widthPx: frameDraft.width,
         shellHeightPx: frameDraft.height,
         userResized: true,
@@ -554,7 +554,7 @@ export default function ComponentsCanvasSurface() {
           {skeleton ? <CanvasGenerationSkeleton rect={skeleton} /> : null}
           {frameDraft ? (
             <div
-              className="pointer-events-none absolute border border-dashed border-brandcolor-700 bg-brandcolor-700/5"
+              className="pointer-events-none absolute border border-dashed border-brandcolor-primary bg-brandcolor-primary/5"
               style={{
                 left: frameDraft.x,
                 top: frameDraft.y,
@@ -570,7 +570,7 @@ export default function ComponentsCanvasSurface() {
       </div>
 
       <div className="pointer-events-none absolute left-3 top-3 z-20 flex flex-col gap-1">
-        <div className="pointer-events-auto flex flex-col overflow-hidden rounded-lg border border-brandcolor-200 bg-white shadow">
+        <div className="pointer-events-auto flex flex-col overflow-hidden rounded-lg border border-brandcolor-strokeweak bg-white shadow">
           <ToolButton
             active={tool === 'select'}
             label="Select"
@@ -589,7 +589,7 @@ export default function ComponentsCanvasSurface() {
             <RiChat1Line className="size-4" />
           </ToolButton>
         </div>
-        <div className="pointer-events-auto mt-1 flex flex-col overflow-hidden rounded-lg border border-brandcolor-200 bg-white shadow">
+        <div className="pointer-events-auto mt-1 flex flex-col overflow-hidden rounded-lg border border-brandcolor-strokeweak bg-white shadow">
           <ToolButton label="Zoom in" onClick={() => zoomFromCenter(SCALE_STEP)}>
             <RiAddLine className="size-4" />
           </ToolButton>
@@ -609,19 +609,19 @@ export default function ComponentsCanvasSurface() {
       </div>
 
       {selected ? (
-        <aside className="absolute right-0 top-0 z-20 flex h-full w-56 flex-col border-l border-brandcolor-200 bg-white p-3 text-canvas-ui">
-          <p className="text-canvas-xs uppercase text-brandcolor-500">Inspector</p>
+        <aside className="absolute right-0 top-0 z-20 flex h-full w-56 flex-col border-l border-brandcolor-strokeweak bg-white p-3 text-canvas-ui">
+          <p className="text-canvas-xs uppercase text-brandcolor-textweak">Inspector</p>
           <p className="mt-1 font-medium">{nodeToolbarLabel(selected)}</p>
-          <p className="text-brandcolor-500">
+          <p className="text-brandcolor-textweak">
             {String(nodes.length)} blocks · {selected.kind}
           </p>
           <p className="mt-2">
             {isPublished(selected) ? (
-              <span className="rounded bg-brandcolor-warning-soft px-1 text-brandcolor-warning">
+              <span className="rounded bg-brandcolor-banner-warning-bg px-1 text-brandcolor-banner-warning-button">
                 Published
               </span>
             ) : (
-              <span className="rounded bg-brandcolor-100 px-1 text-brandcolor-500">
+              <span className="rounded bg-brandcolor-neutralhover px-1 text-brandcolor-textweak">
                 Not published
               </span>
             )}
@@ -631,7 +631,7 @@ export default function ComponentsCanvasSurface() {
               <label>
                 W
                 <input
-                  className="mt-0.5 w-full rounded border border-brandcolor-200 px-1 py-0.5"
+                  className="mt-0.5 w-full rounded border border-brandcolor-strokeweak px-1 py-0.5"
                   value={widthDraft}
                   onChange={(event) => setWidthDraft(event.target.value)}
                   onBlur={commitLayoutSize}
@@ -645,7 +645,7 @@ export default function ComponentsCanvasSurface() {
               <label>
                 H
                 <input
-                  className="mt-0.5 w-full rounded border border-brandcolor-200 px-1 py-0.5"
+                  className="mt-0.5 w-full rounded border border-brandcolor-strokeweak px-1 py-0.5"
                   value={heightDraft}
                   onChange={(event) => setHeightDraft(event.target.value)}
                   onBlur={commitLayoutSize}
@@ -661,7 +661,7 @@ export default function ComponentsCanvasSurface() {
           <div className="mt-3 flex flex-col gap-1">
             <button
               type="button"
-              className="rounded border border-brandcolor-200 px-2 py-1 text-left"
+              className="rounded border border-brandcolor-strokeweak px-2 py-1 text-left"
               onClick={() => {
                 setHideBlockChrome(true)
                 setPublishNode(selected)
@@ -671,14 +671,14 @@ export default function ComponentsCanvasSurface() {
             </button>
             <button
               type="button"
-              className="rounded border border-brandcolor-200 px-2 py-1 text-left"
+              className="rounded border border-brandcolor-strokeweak px-2 py-1 text-left"
               onClick={() => setCodeNode(selected)}
             >
               Code
             </button>
             <button
               type="button"
-              className="rounded border border-brandcolor-200 px-2 py-1 text-left text-red-700"
+              className="rounded border border-brandcolor-strokeweak px-2 py-1 text-left text-red-700"
               onClick={() => void handleDelete(selected)}
             >
               Delete
@@ -692,9 +692,9 @@ export default function ComponentsCanvasSurface() {
       </div>
 
       {successBanner ? (
-        <div className="absolute left-1/2 top-3 z-30 flex -translate-x-1/2 items-center gap-2 rounded-md border border-brandcolor-200 bg-white px-3 py-1.5 text-[13px] shadow">
+        <div className="absolute left-1/2 top-3 z-30 flex -translate-x-1/2 items-center gap-2 rounded-md border border-brandcolor-strokeweak bg-white px-3 py-1.5 text-[13px] shadow">
           <span>{successBanner}</span>
-          <button type="button" className="text-brandcolor-500" onClick={() => setSuccessBanner(null)}>
+          <button type="button" className="text-brandcolor-textweak" onClick={() => setSuccessBanner(null)}>
             Dismiss
           </button>
         </div>
@@ -746,7 +746,7 @@ function ToolButton({
       aria-label={label}
       onClick={onClick}
       className={`flex size-9 items-center justify-center ${
-        active ? 'bg-brandcolor-100 text-brandcolor-900' : 'text-brandcolor-700'
+        active ? 'bg-brandcolor-neutralhover text-brandcolor-textstrong' : 'text-brandcolor-textstrong'
       }`}
     >
       {children}

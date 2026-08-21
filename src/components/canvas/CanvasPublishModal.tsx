@@ -55,14 +55,14 @@ export default function CanvasPublishModal({
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-brandcolor-900/40 p-4">
-      <div className="w-full max-w-lg rounded-xl border border-brandcolor-200 bg-white p-4 shadow-lg">
-        <h2 className="text-sm font-semibold text-brandcolor-900">Publish component</h2>
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-brandcolor-textstrong/40 p-4">
+      <div className="w-full max-w-lg rounded-xl border border-brandcolor-strokeweak bg-white p-4 shadow-lg">
+        <h2 className="text-sm font-semibold text-brandcolor-textstrong">Publish component</h2>
         <div className="mt-3 flex items-center gap-2">
           {editingName ? (
             <input
               id={nameId}
-              className="flex-1 rounded-md border border-brandcolor-200 px-2 py-1.5 text-sm"
+              className="flex-1 rounded-md border border-brandcolor-strokeweak px-2 py-1.5 text-sm"
               value={label}
               onChange={(event) => setLabel(event.target.value)}
               autoFocus
@@ -72,7 +72,7 @@ export default function CanvasPublishModal({
           )}
           <button
             type="button"
-            className="rounded p-1 text-brandcolor-500"
+            className="rounded p-1 text-brandcolor-textweak"
             aria-label="Rename"
             onClick={() => setEditingName((value) => !value)}
           >
@@ -80,19 +80,19 @@ export default function CanvasPublishModal({
           </button>
         </div>
         <div
-          className="mt-3 overflow-hidden rounded-md border border-brandcolor-200 bg-brandcolor-50 p-3"
+          className="mt-3 overflow-hidden rounded-md border border-brandcolor-strokeweak bg-brandcolor-fill p-3"
           dangerouslySetInnerHTML={{ __html: sanitizeCanvasHtml(previewHtml) }}
         />
-        <label className="mt-3 block text-canvas-ui text-brandcolor-700" htmlFor={descId}>
+        <label className="mt-3 block text-canvas-ui text-brandcolor-textstrong" htmlFor={descId}>
           Description
           <textarea
             id={descId}
-            className="mt-1 h-20 w-full rounded-md border border-brandcolor-200 px-2 py-1.5 text-sm"
+            className="mt-1 h-20 w-full rounded-md border border-brandcolor-strokeweak px-2 py-1.5 text-sm"
             value={description}
             onChange={(event) => setDescription(event.target.value)}
           />
         </label>
-        <label className="mt-3 flex items-center gap-2 text-canvas-ui text-brandcolor-700">
+        <label className="mt-3 flex items-center gap-2 text-canvas-ui text-brandcolor-textstrong">
           <input
             type="checkbox"
             checked={sealed}
@@ -101,14 +101,14 @@ export default function CanvasPublishModal({
           Sealed (immutable in catalog)
         </label>
         {error ? (
-          <p className="mt-2 rounded bg-brandcolor-warning-soft px-2 py-1 text-canvas-ui text-brandcolor-warning">
+          <p className="mt-2 rounded bg-brandcolor-banner-warning-bg px-2 py-1 text-canvas-ui text-brandcolor-banner-warning-button">
             {error}
           </p>
         ) : null}
         <div className="mt-4 flex justify-end gap-2">
           <button
             type="button"
-            className="rounded-md px-3 py-1.5 text-sm text-brandcolor-700 disabled:opacity-40"
+            className="rounded-md px-3 py-1.5 text-sm text-brandcolor-textstrong disabled:opacity-40"
             disabled={busy}
             onClick={onClose}
           >
@@ -116,7 +116,7 @@ export default function CanvasPublishModal({
           </button>
           <button
             type="button"
-            className="rounded-md bg-brandcolor-700 px-3 py-1.5 text-sm text-white disabled:opacity-40"
+            className="rounded-md bg-brandcolor-primary px-3 py-1.5 text-sm text-white disabled:opacity-40"
             disabled={busy}
             onClick={() => onPublish({ label: label.trim() || defaultName, description, sealed })}
           >
@@ -140,20 +140,20 @@ export function CanvasCodeModal({ open, sourceHtml, blueprint, onClose }: CodeMo
     return null
   }
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-brandcolor-900/40 p-4">
-      <div className="flex max-h-[80vh] w-full max-w-2xl flex-col rounded-xl border border-brandcolor-200 bg-white p-4 shadow-lg">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-brandcolor-textstrong/40 p-4">
+      <div className="flex max-h-[80vh] w-full max-w-2xl flex-col rounded-xl border border-brandcolor-strokeweak bg-white p-4 shadow-lg">
         <h2 className="text-sm font-semibold">Component source</h2>
-        <p className="mt-2 text-canvas-xs uppercase text-brandcolor-500">sourceHtml</p>
-        <pre className="mt-1 max-h-48 overflow-auto rounded-md bg-brandcolor-50 p-2 text-xs">
+        <p className="mt-2 text-canvas-xs uppercase text-brandcolor-textweak">sourceHtml</p>
+        <pre className="mt-1 max-h-48 overflow-auto rounded-md bg-brandcolor-fill p-2 text-xs">
           {sourceHtml}
         </pre>
-        <p className="mt-3 text-canvas-xs uppercase text-brandcolor-500">blueprint</p>
-        <pre className="mt-1 min-h-0 flex-1 overflow-auto rounded-md bg-brandcolor-50 p-2 text-xs">
+        <p className="mt-3 text-canvas-xs uppercase text-brandcolor-textweak">blueprint</p>
+        <pre className="mt-1 min-h-0 flex-1 overflow-auto rounded-md bg-brandcolor-fill p-2 text-xs">
           {JSON.stringify(blueprint, null, 2)}
         </pre>
         <button
           type="button"
-          className="mt-3 self-end rounded-md bg-brandcolor-700 px-3 py-1.5 text-sm text-white"
+          className="mt-3 self-end rounded-md bg-brandcolor-primary px-3 py-1.5 text-sm text-white"
           onClick={onClose}
         >
           Close

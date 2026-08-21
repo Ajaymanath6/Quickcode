@@ -21,7 +21,7 @@ export default function SidebarComponentsExplorer({ query }: { query: string }) 
     <div className="px-2 pb-2">
       <button
         type="button"
-        className="w-full px-2 py-1.5 text-left text-[11px] font-medium uppercase tracking-wide text-brandcolor-500"
+        className="w-full px-2 py-1.5 text-left text-[11px] font-medium uppercase tracking-wide text-brandcolor-textweak"
         onClick={() => setOpen((value) => !value)}
       >
         Components
@@ -32,21 +32,21 @@ export default function SidebarComponentsExplorer({ query }: { query: string }) 
             <NavLink to="/catalog/all" className={({ isActive }) => navRowClass(isActive)}>
               <SidebarDuotoneIcon icon={RiApps2Line} />
               All
-              <span className="ml-auto text-[11px] text-brandcolor-500">{String(componentCount)}</span>
+              <span className="ml-auto text-[11px] text-brandcolor-textweak">{String(componentCount)}</span>
             </NavLink>
           ) : null}
           {showLayouts ? (
             <NavLink to="/catalog/layouts" className={({ isActive }) => navRowClass(isActive)}>
               <SidebarDuotoneIcon icon={RiLayout4Line} />
               Layouts
-              <span className="ml-auto text-[11px] text-brandcolor-500">{String(layoutCount)}</span>
+              <span className="ml-auto text-[11px] text-brandcolor-textweak">{String(layoutCount)}</span>
             </NavLink>
           ) : null}
           {showBookmarks ? (
             <NavLink to="/catalog/bookmarks" className={({ isActive }) => navRowClass(isActive)}>
               <SidebarDuotoneIcon icon={RiBookmarkLine} />
               Bookmarks
-              <span className="ml-auto text-[11px] text-brandcolor-500">{String(bookmarks.size)}</span>
+              <span className="ml-auto text-[11px] text-brandcolor-textweak">{String(bookmarks.size)}</span>
             </NavLink>
           ) : null}
         </div>

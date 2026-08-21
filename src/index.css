@@ -3,16 +3,84 @@
 @tailwind utilities;
 
 :root {
-  --brandcolor-50: #f4f6f8;
-  --brandcolor-100: #e8ecf1;
-  --brandcolor-200: #d0d8e2;
-  --brandcolor-500: #3d4f63;
-  --brandcolor-700: #243140;
-  --brandcolor-900: #121820;
-  --brandcolor-warning: #c47b16;
-  --brandcolor-warning-soft: #f8edd9;
+  /* Brand colors — space-separated RGB channels for Tailwind alpha support */
+  --color-brandcolor-primary: 245 194 81;
+  --color-brandcolor-primaryhover: 243 180 42;
+  --color-brandcolor-secondary: 43 108 176;
+  --color-brandcolor-secondaryfill: 238 242 247;
+  --color-brandcolor-secondaryhover: 35 88 143;
+  --color-brandcolor-neutralhover: 239 239 239;
+  --color-brandcolor-textstrong: 51 51 51;
+  --color-brandcolor-textweak: 105 105 105;
+  --color-brandcolor-strokestrong: 105 105 105;
+  --color-brandcolor-strokeweak: 232 232 232;
+  --color-brandcolor-strokemild: 133 133 133;
+  --color-brandcolor-strokelight: 246 246 246;
+  --color-brandcolor-fill: 250 250 250;
+  --color-brandcolor-white: 255 255 255;
+  --color-brandcolor-sidebarhover: 46 60 72;
+  --color-brandcolor-divider: 232 232 232;
+  --color-brandcolor-banner-info-bg: 255 228 214;
+  --color-brandcolor-banner-warning-bg: 255 235 225;
+  --color-brandcolor-banner-warning-button: 245 194 81;
+  --color-brandcolor-results-bg: 248 249 251;
+  --color-brandcolor-archived-bg: 251 248 231;
+  --color-brandcolor-archived-border: 165 165 165;
+  --color-brandcolor-archived-badge: 232 232 232;
+  --color-brandcolor-destructive: 194 2 5;
+  --color-brandcolor-table-header: 221 221 221;
+  --color-brandcolor-badge-success-bg: 226 243 224;
+  --color-brandcolor-badge-success-text: 2 136 49;
+  --color-brandcolor-badge-attorney-bg: 242 235 255;
+  --color-brandcolor-badge-attorney-text: 98 56 170;
+  --color-brandcolor-badge-amber-bg: 255 247 219;
+  --color-brandcolor-badge-amber-text: 164 120 0;
+
   --canvas-grid: #e2e8f0;
-  --canvas-fill: #f4f6f8;
+  --canvas-fill: #fafafa;
+
+  /* Typography stacks + theme type scale */
+  /* Typography stacks: Catamaran = headings >32px; Lato = body + headings ≤32px */
+  --font-sans-stack: Lato, ui-sans-serif, system-ui, sans-serif;
+  --font-catamaran-stack: Catamaran, Lato, ui-sans-serif, system-ui, sans-serif;
+  --font-lora-stack: Lora, ui-serif, Georgia, serif;
+  --font-geist-stack: 'Geist', ui-sans-serif, system-ui, sans-serif;
+  --fs-theme-title-h1: 40px;
+  --lh-theme-title-h1: 48px;
+  --fs-theme-title-h2: 32px;
+  --lh-theme-title-h2: 40px;
+  --fs-theme-title-h3: 24px;
+  --lh-theme-title-h3: 32px;
+  --fs-theme-title-h4: 20px;
+  --lh-theme-title-h4: 28px;
+  --fs-theme-title-h5: 18px;
+  --lh-theme-title-h5: 26px;
+  --fs-theme-title-h6: 16px;
+  --lh-theme-title-h6: 24px;
+  --fs-theme-body-large-regular: 18px;
+  --lh-theme-body-large-regular: 28px;
+  --fs-theme-body-large-emphasis: 18px;
+  --lh-theme-body-large-emphasis: 28px;
+  --fs-theme-body-large-bold: 18px;
+  --lh-theme-body-large-bold: 28px;
+  --fs-theme-body-medium-regular: 16px;
+  --lh-theme-body-medium-regular: 24px;
+  --fs-theme-body-medium-emphasis: 16px;
+  --lh-theme-body-medium-emphasis: 24px;
+  --fs-theme-body-medium-bold: 16px;
+  --lh-theme-body-medium-bold: 24px;
+  --fs-theme-body-small-regular: 14px;
+  --lh-theme-body-small-regular: 20px;
+  --fs-theme-body-small-emphasis: 14px;
+  --lh-theme-body-small-emphasis: 20px;
+  --fs-theme-body-small-bold: 14px;
+  --lh-theme-body-small-bold: 20px;
+  --fw-theme-regular: 400;
+  --fw-theme-medium: 500;
+  --fw-theme-semibold: 600;
+  --fw-theme-bold: 700;
+
+  /* Legacy length tokens still edited by Theme Typography panel */
   --font-size-xs: 12px;
   --font-size-sm: 14px;
   --font-size-base: 16px;
@@ -21,9 +89,38 @@
   --line-height-sm: 20px;
   --line-height-base: 24px;
   --line-height-lg: 28px;
+
+  /* Shadows */
   --shadow-sm: 0 1px 2px rgb(18 24 32 / 0.06);
   --shadow-md: 0 4px 12px rgb(18 24 32 / 0.08);
   --shadow-lg: 0 12px 24px rgb(18 24 32 / 0.12);
+  --shadow-button-press: inset 3px 3px 10px 0 rgb(26 26 26 / 0.33);
+  --shadow-border-inset-strokelight: inset 0 0 0 1px rgb(var(--color-brandcolor-strokelight));
+  --shadow-border-inset-secondary: inset 0 0 0 1.5px rgb(var(--color-brandcolor-secondary));
+  --shadow-border-inset-secondary-press: inset 0 0 0 1.5px rgb(var(--color-brandcolor-secondary)),
+    inset 3px 3px 10px 0 rgb(26 26 26 / 0.33);
+  --shadow-header: 0 1px 0 rgb(var(--color-brandcolor-strokeweak));
+  --shadow-tab-option: 0 1px 2px rgb(18 24 32 / 0.06);
+  --shadow-card: 0 4px 12px rgb(18 24 32 / 0.08);
+  --shadow-sidebar-toggle: 0 1px 2px rgb(18 24 32 / 0.08);
+  --shadow-confirm-password-valid: 0 0 0 2px rgb(var(--color-brandcolor-badge-success-text) / 0.25);
+  --shadow-button-brand-glow: 0 0 0 3px rgb(var(--color-brandcolor-primary) / 0.2);
+
+  /* Spacing primitives + card aliases */
+  --space-micro: 4px;
+  --space-tight: 8px;
+  --space-cozy: 12px;
+  --space-section: 16px;
+  --space-hero: 24px;
+  --space-inline: 32px;
+  --card-padding-compact: var(--space-inline);
+  --card-padding-default: var(--space-cozy);
+  --card-padding-comfy: var(--space-section);
+  --card-gap-tight: var(--space-tight);
+  --card-gap-default: var(--space-inline);
+  --card-gap-loose: var(--space-cozy);
+
+  /* Legacy spacing keys for Theme Spacing panel */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -34,13 +131,38 @@
 
 body {
   margin: 0;
-  color: var(--brandcolor-900);
-  background: var(--brandcolor-50);
+  color: rgb(var(--color-brandcolor-textstrong));
+  background: rgb(var(--color-brandcolor-fill));
+  font-family: var(--font-sans-stack);
   font-size: var(--font-size-sm);
   line-height: var(--line-height-sm);
+}
+
+/* Catamaran for display headings (>32px); Lato for smaller type */
+.font-display,
+.text-4xl,
+.text-5xl,
+.text-6xl,
+.text-7xl,
+.text-8xl,
+.text-9xl {
+  font-family: var(--font-catamaran-stack);
 }
 
 .catalog-html-preview a,
 .catalog-html-preview button {
   pointer-events: none;
+}
+
+.landing-hero-waves {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='40' viewBox='0 0 120 40'%3E%3Cpath fill='none' stroke='%23333333' stroke-width='1.25' d='M0 20c20 0 20-10 40-10s20 10 40 10 20-10 40-10'/%3E%3C/svg%3E");
+  background-size: 120px 40px;
+}
+
+/* Light patterned page sections (fine diagonal weave / diamond grid) */
+.landing-pattern {
+  background-color: #f3f3f3;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cpath fill='none' stroke='%23d0d0d0' stroke-width='0.55' d='M-1 4 L4 -1 M4 9 L9 4 M-1 0 L0 -1 M8 9 L9 8 M-1 8 L0 9 M8 -1 L9 0'/%3E%3C/svg%3E");
+  background-size: 8px 8px;
 }

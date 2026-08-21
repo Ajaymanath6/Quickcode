@@ -1,0 +1,484 @@
+{
+  "name": "Theme Guide V2",
+  "themeColors": {
+    "brandcolor-primary": {
+      "hex": "#F5C251",
+      "usage": "Main CTA button background, primary brand color",
+      "utilityClasses": {
+        "background": "bg-brandcolor-primary",
+        "text": "text-brandcolor-primary",
+        "border": "border-brandcolor-primary"
+      },
+      "whenToUse": [
+        "Primary/CTA buttons background",
+        "Main brand color elements",
+        "Active states",
+        "Primary actions"
+      ],
+      "examples": [
+        "Button: bg-brandcolor-primary text-brandcolor-white hover:bg-brandcolor-primaryhover"
+      ]
+    },
+    "brandcolor-primaryhover": {
+      "hex": "#F3B42A",
+      "usage": "Hover state for primary buttons",
+      "utilityClasses": {
+        "background": "bg-brandcolor-primaryhover"
+      },
+      "whenToUse": [
+        "Primary button hover state"
+      ],
+      "examples": [
+        "hover:bg-brandcolor-primaryhover"
+      ],
+      "logic": "When background is brandcolor-primary, hover uses brandcolor-primaryhover"
+    },
+    "brandcolor-secondary": {
+      "hex": "#2B6CB0",
+      "usage": "Secondary brand color for outline/secondary buttons",
+      "utilityClasses": {
+        "background": "bg-brandcolor-secondary",
+        "text": "text-brandcolor-secondary",
+        "border": "border-brandcolor-secondary"
+      },
+      "whenToUse": [
+        "Secondary button background",
+        "Outline button border and text"
+      ]
+    },
+    "brandcolor-secondaryfill": {
+      "hex": "#EEF2F7",
+      "usage": "Secondary fill for active/selected light backgrounds",
+      "utilityClasses": {
+        "background": "bg-brandcolor-secondaryfill"
+      },
+      "whenToUse": [
+        "Active secondary controls",
+        "Selected pill backgrounds"
+      ]
+    },
+    "brandcolor-secondaryhover": {
+      "hex": "#23588F",
+      "usage": "Hover for secondary filled buttons",
+      "utilityClasses": {
+        "background": "bg-brandcolor-secondaryhover"
+      },
+      "whenToUse": [
+        "Secondary button hover"
+      ]
+    },
+    "brandcolor-neutralhover": {
+      "hex": "#EFEFEF",
+      "usage": "Hover for neutral/outline buttons \u2014 not fill",
+      "utilityClasses": {
+        "background": "bg-brandcolor-neutralhover"
+      },
+      "whenToUse": [
+        "Neutral button hover",
+        "Outline button hover"
+      ],
+      "logic": "Do not use bg-brandcolor-fill for neutral hover"
+    },
+    "brandcolor-textstrong": {
+      "hex": "#333333",
+      "usage": "Headings and primary text",
+      "utilityClasses": {
+        "text": "text-brandcolor-textstrong"
+      },
+      "whenToUse": [
+        "h1\u2013h3",
+        "Primary labels",
+        "Important text"
+      ]
+    },
+    "brandcolor-textweak": {
+      "hex": "#696969",
+      "usage": "Secondary body text",
+      "utilityClasses": {
+        "text": "text-brandcolor-textweak"
+      },
+      "whenToUse": [
+        "Body copy",
+        "Helper text",
+        "Descriptions"
+      ]
+    },
+    "brandcolor-strokestrong": {
+      "hex": "#696969",
+      "usage": "Sidebar, input, and most button borders",
+      "utilityClasses": {
+        "border": "border-brandcolor-strokestrong",
+        "text": "text-brandcolor-strokestrong"
+      },
+      "whenToUse": [
+        "Sidebar borders",
+        "Input borders",
+        "Button borders",
+        "Icons"
+      ],
+      "importantNote": "ALWAYS use strokestrong for sidebar, input, and button borders"
+    },
+    "brandcolor-strokeweak": {
+      "hex": "#E8E8E8",
+      "usage": "Card borders and dividers",
+      "utilityClasses": {
+        "border": "border-brandcolor-strokeweak"
+      },
+      "whenToUse": [
+        "Card borders",
+        "Dividers",
+        "Secondary button borders"
+      ],
+      "importantNote": "ALWAYS use strokeweak for cards and dividers"
+    },
+    "brandcolor-strokemild": {
+      "hex": "#858585",
+      "usage": "Table row hover borders",
+      "utilityClasses": {
+        "border": "border-brandcolor-strokemild"
+      },
+      "whenToUse": [
+        "Hovered table row borders"
+      ]
+    },
+    "brandcolor-strokelight": {
+      "hex": "#F6F6F6",
+      "usage": "Primary-outline button default border / light strokes",
+      "utilityClasses": {
+        "border": "border-brandcolor-strokelight"
+      },
+      "whenToUse": [
+        "Primary-outline button border"
+      ]
+    },
+    "brandcolor-fill": {
+      "hex": "#FAFAFA",
+      "usage": "Layout and section backgrounds",
+      "utilityClasses": {
+        "background": "bg-brandcolor-fill"
+      },
+      "whenToUse": [
+        "Page backgrounds",
+        "Section fills"
+      ],
+      "importantNote": "Not for neutral button hover \u2014 use brandcolor-neutralhover"
+    },
+    "brandcolor-white": {
+      "hex": "#FFFFFF",
+      "usage": "Card/modal surfaces and text on primary",
+      "utilityClasses": {
+        "background": "bg-brandcolor-white",
+        "text": "text-brandcolor-white"
+      },
+      "whenToUse": [
+        "Cards",
+        "Modals",
+        "Primary button label"
+      ]
+    },
+    "brandcolor-sidebarhover": {
+      "hex": "#2E3C48",
+      "usage": "Sidebar menu hover / dark dropdowns",
+      "utilityClasses": {
+        "background": "bg-brandcolor-sidebarhover",
+        "hover": "hover:bg-brandcolor-sidebarhover"
+      },
+      "whenToUse": [
+        "Sidebar item hover",
+        "Dropdown menu backgrounds"
+      ]
+    },
+    "brandcolor-divider": {
+      "hex": "#E8E8E8",
+      "usage": "Hairline dividers",
+      "utilityClasses": {
+        "border": "border-brandcolor-divider",
+        "background": "bg-brandcolor-divider"
+      },
+      "whenToUse": [
+        "List separators"
+      ]
+    },
+    "brandcolor-banner-info-bg": {
+      "hex": "#FFE4D6",
+      "usage": "Informational banner background",
+      "utilityClasses": {
+        "background": "bg-brandcolor-banner-info-bg"
+      },
+      "whenToUse": [
+        "Info banners"
+      ]
+    },
+    "brandcolor-banner-warning-bg": {
+      "hex": "#FFEBE1",
+      "usage": "Warning banner background",
+      "utilityClasses": {
+        "background": "bg-brandcolor-banner-warning-bg"
+      },
+      "whenToUse": [
+        "Warning banners"
+      ]
+    },
+    "brandcolor-banner-warning-button": {
+      "hex": "#F5C251",
+      "usage": "Warning banner CTA",
+      "utilityClasses": {
+        "background": "bg-brandcolor-banner-warning-button",
+        "text": "text-brandcolor-white"
+      },
+      "whenToUse": [
+        "Warning banner buttons"
+      ]
+    },
+    "brandcolor-results-bg": {
+      "hex": "#F8F9FB",
+      "usage": "Results / scrollable content background",
+      "utilityClasses": {
+        "background": "bg-brandcolor-results-bg"
+      },
+      "whenToUse": [
+        "Results layouts"
+      ]
+    },
+    "brandcolor-archived-bg": {
+      "hex": "#FBF8E7",
+      "usage": "Archived card background",
+      "utilityClasses": {
+        "background": "bg-brandcolor-archived-bg"
+      },
+      "whenToUse": [
+        "Archived cards"
+      ]
+    },
+    "brandcolor-archived-border": {
+      "hex": "#A5A5A5",
+      "usage": "Archived card dashed border",
+      "utilityClasses": {
+        "border": "border-brandcolor-archived-border"
+      },
+      "whenToUse": [
+        "Archived card borders"
+      ]
+    },
+    "brandcolor-archived-badge": {
+      "hex": "#E8E8E8",
+      "usage": "Archived badge background",
+      "utilityClasses": {
+        "background": "bg-brandcolor-archived-badge"
+      },
+      "whenToUse": [
+        "Archived badges"
+      ]
+    },
+    "brandcolor-destructive": {
+      "hex": "#C20205",
+      "usage": "Destructive / archive action color",
+      "utilityClasses": {
+        "text": "text-brandcolor-destructive",
+        "background": "bg-brandcolor-destructive"
+      },
+      "whenToUse": [
+        "Archive menu items",
+        "Destructive labels"
+      ]
+    },
+    "brandcolor-table-header": {
+      "hex": "#DDDDDD",
+      "usage": "Table header background",
+      "utilityClasses": {
+        "background": "bg-brandcolor-table-header"
+      },
+      "whenToUse": [
+        "Table headers"
+      ]
+    },
+    "brandcolor-badge-success-bg": {
+      "hex": "#E2F3E0",
+      "usage": "Success badge background",
+      "utilityClasses": {
+        "background": "bg-brandcolor-badge-success-bg"
+      },
+      "whenToUse": [
+        "Success badges"
+      ]
+    },
+    "brandcolor-badge-success-text": {
+      "hex": "#028831",
+      "usage": "Success badge text",
+      "utilityClasses": {
+        "text": "text-brandcolor-badge-success-text"
+      },
+      "whenToUse": [
+        "Success badge labels"
+      ]
+    },
+    "brandcolor-badge-attorney-bg": {
+      "hex": "#F2EBFF",
+      "usage": "Attorney badge background",
+      "utilityClasses": {
+        "background": "bg-brandcolor-badge-attorney-bg"
+      },
+      "whenToUse": [
+        "Entity badges"
+      ]
+    },
+    "brandcolor-badge-attorney-text": {
+      "hex": "#6238AA",
+      "usage": "Attorney badge text",
+      "utilityClasses": {
+        "text": "text-brandcolor-badge-attorney-text"
+      },
+      "whenToUse": [
+        "Entity badge labels"
+      ]
+    },
+    "brandcolor-badge-amber-bg": {
+      "hex": "#FFF7DB",
+      "usage": "Amber badge background",
+      "utilityClasses": {
+        "background": "bg-brandcolor-badge-amber-bg"
+      },
+      "whenToUse": [
+        "Warning entity badges"
+      ]
+    },
+    "brandcolor-badge-amber-text": {
+      "hex": "#A47800",
+      "usage": "Amber badge text",
+      "utilityClasses": {
+        "text": "text-brandcolor-badge-amber-text"
+      },
+      "whenToUse": [
+        "Amber badge labels"
+      ]
+    }
+  },
+  "componentGuidelines": {
+    "button": {
+      "cornerRadius": {
+        "value": "6px",
+        "tailwindClass": "rounded-md",
+        "description": "ALL buttons use rounded-md (6px)."
+      },
+      "secondaryBorderWidth": {
+        "value": "1.5px",
+        "tailwindClass": "border-[1.5px]",
+        "description": "Secondary buttons use 1.5px borders."
+      },
+      "primary": {
+        "description": "Main CTA",
+        "completeClasses": "border-[1.5px] border-transparent bg-brandcolor-primary text-brandcolor-white hover:bg-brandcolor-primaryhover focus:border-brandcolor-primary active:border-brandcolor-primary active:shadow-button-press disabled:opacity-50 rounded-md",
+        "requiredClasses": [
+          "border-[1.5px]",
+          "border-transparent",
+          "bg-brandcolor-primary",
+          "text-brandcolor-white",
+          "hover:bg-brandcolor-primaryhover",
+          "rounded-md"
+        ],
+        "whenToUse": "Primary call-to-action"
+      },
+      "neutral": {
+        "description": "Neutral / outline",
+        "completeClasses": "border-[1.5px] border-brandcolor-strokelight text-brandcolor-textweak bg-brandcolor-white hover:bg-brandcolor-neutralhover active:border-brandcolor-textweak active:shadow-button-press disabled:opacity-50 rounded-md",
+        "requiredClasses": [
+          "border-[1.5px]",
+          "border-brandcolor-strokelight",
+          "text-brandcolor-textweak",
+          "bg-brandcolor-white",
+          "hover:bg-brandcolor-neutralhover",
+          "rounded-md"
+        ],
+        "whenToUse": "Neutral actions"
+      }
+    },
+    "card": {
+      "description": "Cards with weak stroke",
+      "styling": {
+        "border": "border border-brandcolor-strokeweak",
+        "background": "bg-brandcolor-white",
+        "padding": "p-card-pad-default",
+        "borderRadius": "rounded-lg",
+        "shadow": "shadow-card"
+      },
+      "criticalRules": [
+        "ALWAYS use border-brandcolor-strokeweak for card borders",
+        "ALWAYS use bg-brandcolor-white for card background",
+        "Prefer p-card-pad-default / gap-card-gap-default spacing tokens"
+      ]
+    },
+    "heading": {
+      "h1": {
+        "classes": "text-brandcolor-textstrong text-theme-title-h1 font-theme-bold"
+      },
+      "h2": {
+        "classes": "text-brandcolor-textstrong text-theme-title-h2 font-theme-semibold"
+      },
+      "h3": {
+        "classes": "text-brandcolor-textstrong text-theme-title-h3 font-theme-semibold"
+      }
+    },
+    "input": {
+      "description": "Inputs with strong stroke; focus to textstrong; no rings",
+      "classes": "border-brandcolor-strokestrong focus:border-brandcolor-textstrong focus:outline-none focus:ring-0 text-brandcolor-textstrong",
+      "criticalRules": [
+        "ALWAYS include focus:ring-0 and focus:outline-none",
+        "Focus border MUST be brandcolor-textstrong"
+      ]
+    }
+  },
+  "aiInstructions": {
+    "workflow": [
+      "STEP 1: Read Tailwind brandcolor-* tokens",
+      "STEP 2: Read this theme-guide.json completely",
+      "STEP 3: Check componentGuidelines for the component",
+      "STEP 4: Emit ONLY brandcolor-* / theme spacing utilities",
+      "STEP 5: No hex, no inline styles, no bg-blue-*"
+    ],
+    "criticalRules": {
+      "noHexCodes": {
+        "rule": "NEVER use hex color codes in HTML/CSS/inline styles",
+        "severity": "CRITICAL"
+      },
+      "noInlineStyles": {
+        "rule": "NEVER use style= for colors",
+        "severity": "CRITICAL"
+      },
+      "noHardcodedTailwindColors": {
+        "rule": "NEVER use bg-blue-600 / text-gray-900 / border-gray-200",
+        "severity": "CRITICAL",
+        "examples": {
+          "wrong": [
+            "bg-blue-700",
+            "text-gray-900"
+          ],
+          "correct": [
+            "bg-brandcolor-primary",
+            "text-brandcolor-textstrong"
+          ]
+        }
+      },
+      "onlyUtilityClasses": {
+        "rule": "ONLY use utilities from this guide and tailwind.config.js",
+        "severity": "CRITICAL"
+      }
+    },
+    "commonMistakes": {
+      "mistake1": {
+        "wrong": "<button class=\"bg-blue-600 text-white\">Button</button>",
+        "correct": "<button class=\"bg-brandcolor-primary text-brandcolor-white hover:bg-brandcolor-primaryhover rounded-md px-4 py-2\">Button</button>",
+        "reason": "Use theme classes and required button radius"
+      },
+      "mistake2": {
+        "wrong": "<div style=\"background-color: #F84416\">Content</div>",
+        "correct": "<div class=\"bg-brandcolor-primary\">Content</div>",
+        "reason": "No inline styles or hex"
+      },
+      "mistake3": {
+        "wrong": "<button class=\"bg-brandcolor-primary rounded-lg\">Button</button>",
+        "correct": "<button class=\"bg-brandcolor-primary rounded-md\">Button</button>",
+        "reason": "Buttons must use rounded-md"
+      }
+    }
+  }
+}

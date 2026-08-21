@@ -3,7 +3,10 @@ import CatalogLayout from '@/layouts/CatalogLayout'
 import MainLayout from '@/layouts/MainLayout'
 import ThemeConfigurationLayout from '@/layouts/ThemeConfigurationLayout'
 import AdminCanvasOutlet from '@/pages/AdminCanvasOutlet'
-import LandingPage from '@/pages/LandingPage'
+import LandingPage from '@/pages/landing'
+import Landing1Page from '@/pages/landing1'
+import Landing2Page from '@/pages/landing2'
+import Landing3Page from '@/pages/landing3'
 import CatalogAllPage from '@/pages/catalog/CatalogAllPage'
 import CatalogBookmarksPage from '@/pages/catalog/CatalogBookmarksPage'
 import CatalogHomePage from '@/pages/catalog/CatalogHomePage'
@@ -20,6 +23,9 @@ export default function App() {
         <Route path="/" element={<Navigate to="/landing" replace />} />
         <Route element={<MainLayout />}>
           <Route path="/landing" element={<LandingPage />} />
+          <Route path="/landing1" element={<Landing1Page />} />
+          <Route path="/landing2" element={<Landing2Page />} />
+          <Route path="/landing3" element={<Landing3Page />} />
         </Route>
         <Route path="/admin" element={<Navigate to="/admin/canvas" replace />} />
         <Route path="/catalog" element={<Navigate to="/catalog/home" replace />} />

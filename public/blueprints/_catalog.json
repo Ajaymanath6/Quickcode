@@ -5,7 +5,7 @@
     "label": "Product card",
     "name": "Product card",
     "imageAlt": "Product card",
-    "sourceHtml": "<article class=\"rounded-xl border border-brandcolor-200 bg-white p-4 shadow-sm\">\n  <p class=\"text-xs text-brandcolor-500\">Catalog preview</p>\n  <h3 class=\"mt-1 text-base font-semibold text-brandcolor-900\">Product card</h3>\n  <p class=\"mt-2 text-sm text-brandcolor-700\">A compact card used across marketing and admin surfaces.</p>\n</article>",
+    "sourceHtml": "<article class=\"rounded-xl border border-brandcolor-strokeweak bg-white p-4 shadow-sm\">\n  <p class=\"text-xs text-brandcolor-textweak\">Catalog preview</p>\n  <h3 class=\"mt-1 text-base font-semibold text-brandcolor-textstrong\">Product card</h3>\n  <p class=\"mt-2 text-sm text-brandcolor-textstrong\">A compact card used across marketing and admin surfaces.</p>\n</article>",
     "description": "cfhd",
     "sealed": true,
     "kind": "component",
@@ -24,6 +24,31 @@
     "hasBlueprint": true,
     "blueprintPath": "public/blueprints/canvas-card-cb9c84af-fc00-4261-ae08-2acb8cce493f.json",
     "publishedAt": "2026-08-20T11:46:48.977288+00:00",
+    "isLayout": false
+  },
+  {
+    "id": "canvas:primaryButton:21e6dfb4-b2e4-4729-a432-1e0a44cace3f",
+    "componentId": "canvas:primaryButton:21e6dfb4-b2e4-4729-a432-1e0a44cace3f",
+    "label": "Primary action",
+    "name": "Primary action",
+    "imageAlt": "Primary action",
+    "sourceHtml": "<button type=\"button\" class=\"rounded-md bg-brandcolor-primary px-4 py-2 text-sm font-medium text-white\">Primary action</button>",
+    "description": "fd",
+    "sealed": true,
+    "kind": "component",
+    "blueprint": {
+      "id": "21e6dfb4-b2e4-4729-a432-1e0a44cace3f",
+      "kind": "primaryButton",
+      "x": 440,
+      "y": 120,
+      "label": "Primary action",
+      "data": {
+        "imageAlt": "Primary action"
+      }
+    },
+    "hasBlueprint": true,
+    "blueprintPath": "public/blueprints/canvas-primaryButton-21e6dfb4-b2e4-4729-a432-1e0a44cace3f.json",
+    "publishedAt": "2026-08-20T12:16:34.793737+00:00",
     "isLayout": false
   }
 ]

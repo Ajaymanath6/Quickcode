@@ -6,5 +6,5 @@ type SidebarDuotoneIconProps = {
 }
 
 export default function SidebarDuotoneIcon({ icon: Icon, className }: SidebarDuotoneIconProps) {
-  return <Icon className={className ?? 'size-4 text-brandcolor-500'} aria-hidden />
+  return <Icon className={className ?? 'size-4 text-brandcolor-textweak'} aria-hidden />
 }

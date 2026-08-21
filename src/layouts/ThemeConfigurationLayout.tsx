@@ -25,10 +25,10 @@ export default function ThemeConfigurationLayout() {
   return (
     <div className="mx-auto flex max-w-4xl flex-col gap-4 p-6">
       <div className="flex flex-wrap items-center gap-2">
-        <h2 className="mr-auto text-base font-semibold text-brandcolor-900">{title}</h2>
+        <h2 className="mr-auto text-base font-semibold text-brandcolor-textstrong">{title}</h2>
         <button
           type="button"
-          className="rounded-md border border-brandcolor-200 bg-white px-3 py-1.5 text-[13px]"
+          className="rounded-md border border-brandcolor-strokeweak bg-white px-3 py-1.5 text-[13px]"
           onClick={() => {
             theme.resetAll()
             setNotice('Defaults restored.')
@@ -38,14 +38,14 @@ export default function ThemeConfigurationLayout() {
         </button>
         <button
           type="button"
-          className="rounded-md border border-brandcolor-200 bg-white px-3 py-1.5 text-[13px]"
+          className="rounded-md border border-brandcolor-strokeweak bg-white px-3 py-1.5 text-[13px]"
           onClick={() => theme.exportJson()}
         >
           Export JSON
         </button>
         <button
           type="button"
-          className="rounded-md bg-brandcolor-700 px-3 py-1.5 text-[13px] text-white disabled:opacity-40"
+          className="rounded-md bg-brandcolor-primary px-3 py-1.5 text-[13px] text-white disabled:opacity-40"
           disabled={!theme.dirty || hasErrors}
           onClick={() => {
             theme.save()
@@ -56,13 +56,13 @@ export default function ThemeConfigurationLayout() {
         </button>
         <button
           type="button"
-          className="rounded-md border border-brandcolor-200 bg-white px-3 py-1.5 text-[13px]"
+          className="rounded-md border border-brandcolor-strokeweak bg-white px-3 py-1.5 text-[13px]"
           onClick={() => setNotice(theme.saveToProjectFiles())}
         >
           Save to project files
         </button>
       </div>
-      {notice ? <p className="text-[13px] text-brandcolor-500">{notice}</p> : null}
+      {notice ? <p className="text-[13px] text-brandcolor-textweak">{notice}</p> : null}
       <Outlet />
     </div>
   )

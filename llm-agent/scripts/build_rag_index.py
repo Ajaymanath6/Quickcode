@@ -15,7 +15,7 @@ def main() -> int:
     except ImportError:
         print("Install RAG extras: pip install -r requirements-rag.txt", file=sys.stderr)
         return 1
-    docs = ["Use brandcolor-700 for primary actions."]
+    docs = ["Use bg-brandcolor-primary text-brandcolor-white for primary actions."]
     if os.path.isfile(GUIDE):
         with open(GUIDE, encoding="utf-8") as handle:
             data = json.load(handle)

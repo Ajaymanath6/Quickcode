@@ -17,7 +17,7 @@ export default function CatalogLayout() {
       <CatalogSidebarCollapseProvider>
         <CatalogProvider>
           <LayoutWorkspaceProvider>
-            <div className="flex h-dvh overflow-hidden bg-brandcolor-50 text-brandcolor-900">
+            <div className="flex h-dvh overflow-hidden bg-brandcolor-fill text-brandcolor-textstrong">
               <CollapsibleSidebarShell>
                 {onCanvas ? <CanvasSidebar /> : <CatalogSidebar />}
               </CollapsibleSidebarShell>

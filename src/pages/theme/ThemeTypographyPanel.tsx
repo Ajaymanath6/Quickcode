@@ -25,9 +25,9 @@ export default function ThemeTypographyPanel() {
 
   return (
     <div className="space-y-4">
-      <section className="rounded-xl border border-brandcolor-200 bg-white p-4">
+      <section className="rounded-xl border border-brandcolor-strokeweak bg-white p-4">
         <p
-          className="text-brandcolor-900"
+          className="text-brandcolor-textstrong"
           style={{
             fontSize: theme.draft.typography['font-size-lg'],
             lineHeight: theme.draft.typography['line-height-lg'],
@@ -36,7 +36,7 @@ export default function ThemeTypographyPanel() {
           Heading preview
         </p>
         <p
-          className="mt-2 text-brandcolor-700"
+          className="mt-2 text-brandcolor-textstrong"
           style={{
             fontSize: theme.draft.typography['font-size-sm'],
             lineHeight: theme.draft.typography['line-height-sm'],
@@ -45,19 +45,19 @@ export default function ThemeTypographyPanel() {
           Body preview using the current size and line-height tokens.
         </p>
       </section>
-      <section className="rounded-xl border border-brandcolor-200 bg-white p-4">
+      <section className="rounded-xl border border-brandcolor-strokeweak bg-white p-4">
         <h3 className="mb-3 text-[13px] font-semibold">Size and line-height</h3>
         <div className="grid gap-3 sm:grid-cols-2">
           {TYPOGRAPHY_KEYS.map((key) => (
-            <label key={key} className="block text-[13px] text-brandcolor-700">
+            <label key={key} className="block text-[13px] text-brandcolor-textstrong">
               {key}
               <input
-                className="mt-1 w-full rounded-md border border-brandcolor-200 px-2 py-1 font-mono text-[13px]"
+                className="mt-1 w-full rounded-md border border-brandcolor-strokeweak px-2 py-1 font-mono text-[13px]"
                 value={theme.draft.typography[key]}
                 onChange={(event) => update(key, event.target.value)}
               />
               {theme.errors[`type:${key}`] ? (
-                <span className="text-[11px] text-brandcolor-warning">
+                <span className="text-[11px] text-brandcolor-banner-warning-button">
                   {theme.errors[`type:${key}`]}
                 </span>
               ) : null}

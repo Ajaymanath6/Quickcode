@@ -122,7 +122,7 @@ export default function CanvasWorldBlock({
   return (
     <div
       className={`group absolute rounded-xl border bg-white shadow-sm ${
-        selected ? 'border-brandcolor-700 ring-2 ring-brandcolor-700/20' : 'border-brandcolor-200'
+        selected ? 'border-brandcolor-primary ring-2 ring-brandcolor-primary/20' : 'border-brandcolor-strokeweak'
       }`}
       style={{
         left: node.x,
@@ -143,7 +143,7 @@ export default function CanvasWorldBlock({
           }`}
         >
           <div
-            className="pointer-events-auto flex items-center gap-1 rounded bg-white/95 px-1 py-0.5 text-canvas-xs text-brandcolor-700 shadow"
+            className="pointer-events-auto flex items-center gap-1 rounded bg-white/95 px-1 py-0.5 text-canvas-xs text-brandcolor-textstrong shadow"
           >
             <span className="max-w-[90px] truncate">{kindLabel(node.kind)}</span>
             <button
@@ -177,8 +177,8 @@ export default function CanvasWorldBlock({
         <span
           className={`absolute -top-2 right-2 rounded px-1 text-canvas-xs ${
             published
-              ? 'bg-brandcolor-warning-soft text-brandcolor-warning'
-              : 'bg-brandcolor-100 text-brandcolor-500'
+              ? 'bg-brandcolor-banner-warning-bg text-brandcolor-banner-warning-button'
+              : 'bg-brandcolor-neutralhover text-brandcolor-textweak'
           }`}
         >
           {published ? 'Published' : 'Not published'}
@@ -203,16 +203,16 @@ function BlockBody({
     case 'card':
       return (
         <article>
-          <p className="text-canvas-xs text-brandcolor-500">{node.subtitle}</p>
+          <p className="text-canvas-xs text-brandcolor-textweak">{node.subtitle}</p>
           <h3 className="mt-1 text-sm font-semibold">{node.title}</h3>
-          <p className="mt-2 text-xs text-brandcolor-700">{node.body}</p>
+          <p className="mt-2 text-xs text-brandcolor-textstrong">{node.body}</p>
         </article>
       )
     case 'primaryButton':
       return (
         <button
           type="button"
-          className="rounded-md bg-brandcolor-700 px-3 py-2 text-sm text-white"
+          className="rounded-md bg-brandcolor-primary px-3 py-2 text-sm text-white"
         >
           {node.label}
         </button>
@@ -221,7 +221,7 @@ function BlockBody({
       return (
         <button
           type="button"
-          className="rounded-md border border-brandcolor-700 px-3 py-2 text-sm text-brandcolor-700"
+          className="rounded-md border border-brandcolor-primary px-3 py-2 text-sm text-brandcolor-textstrong"
         >
           {node.label}
         </button>
@@ -230,7 +230,7 @@ function BlockBody({
       return (
         <button
           type="button"
-          className="rounded-md bg-brandcolor-100 px-3 py-2 text-sm text-brandcolor-700"
+          className="rounded-md bg-brandcolor-neutralhover px-3 py-2 text-sm text-brandcolor-textstrong"
         >
           {node.label}
         </button>
@@ -238,13 +238,13 @@ function BlockBody({
     case 'confirmPasswordInput':
       return (
         <label
-          className="block text-xs text-brandcolor-700"
+          className="block text-xs text-brandcolor-textstrong"
           onPointerDown={(event) => event.stopPropagation()}
         >
           {node.label}
           <input
             type="password"
-            className="mt-1 w-full rounded-md border border-brandcolor-200 px-2 py-1 text-sm"
+            className="mt-1 w-full rounded-md border border-brandcolor-strokeweak px-2 py-1 text-sm"
             onPointerDown={(event) => event.stopPropagation()}
           />
         </label>
@@ -252,13 +252,13 @@ function BlockBody({
     case 'textInputField':
       return (
         <label
-          className="block text-xs text-brandcolor-700"
+          className="block text-xs text-brandcolor-textstrong"
           onPointerDown={(event) => event.stopPropagation()}
         >
           {node.label}
           <input
             type="text"
-            className="mt-1 w-full rounded-md border border-brandcolor-200 px-2 py-1 text-sm"
+            className="mt-1 w-full rounded-md border border-brandcolor-strokeweak px-2 py-1 text-sm"
             onPointerDown={(event) => event.stopPropagation()}
           />
         </label>
@@ -272,20 +272,20 @@ function BlockBody({
             <Trailing className="size-3.5" />
           </div>
           <input
-            className="mt-2 rounded-md border border-brandcolor-200 px-2 py-1"
+            className="mt-2 rounded-md border border-brandcolor-strokeweak px-2 py-1"
             placeholder={node.searchPlaceholder}
             onPointerDown={(event) => event.stopPropagation()}
           />
           <button
             type="button"
-            className="mt-2 rounded-md bg-brandcolor-100 px-2 py-1"
+            className="mt-2 rounded-md bg-brandcolor-neutralhover px-2 py-1"
           >
             {node.neutralButtonLabel}
           </button>
           <nav className="mt-3 space-y-2">
             {node.navSections.map((section) => (
               <div key={section.title}>
-                <p className="text-canvas-xs uppercase text-brandcolor-500">{section.title}</p>
+                <p className="text-canvas-xs uppercase text-brandcolor-textweak">{section.title}</p>
                 {section.items.map((item) => {
                   const Icon = ICONS[item.iconKey ?? ''] ?? RiHomeLine
                   return (

@@ -26,18 +26,18 @@ def mock_generate_content(prompt: str) -> str:
             return json.dumps(
                 {
                     "html": (
-                        '<section class="p-card-pad-default rounded-lg border border-brandcolor-200 bg-white">'
-                        '<h2 class="text-lg font-semibold text-brandcolor-900">Panel</h2>'
+                        '<section class="p-card-pad-default rounded-lg border border-brandcolor-strokeweak bg-brandcolor-white">'
+                        '<h2 class="text-lg font-semibold text-brandcolor-textstrong">Panel</h2>'
                         "</section>"
                     )
                 }
             )
         return (
-            '<section class="p-card-pad-default rounded-lg border border-brandcolor-200 bg-white">'
-            '<p class="text-xs uppercase tracking-wide text-brandcolor-500">HTML creator</p>'
-            '<h2 class="mt-1 text-lg font-semibold text-brandcolor-900">Generated block</h2>'
-            '<p class="mt-2 text-sm text-brandcolor-700">Mock fragment using brandcolor tokens.</p>'
-            '<button type="button" class="mt-4 rounded-md bg-brandcolor-700 px-3 py-1.5 text-sm text-white">Action</button>'
+            '<section class="p-card-pad-default rounded-lg border border-brandcolor-strokeweak bg-brandcolor-white">'
+            '<p class="text-xs uppercase tracking-wide text-brandcolor-textweak">HTML creator</p>'
+            '<h2 class="mt-1 text-lg font-semibold text-brandcolor-textstrong">Generated block</h2>'
+            '<p class="mt-2 text-sm text-brandcolor-textweak">Mock fragment using brandcolor tokens.</p>'
+            '<button type="button" class="mt-4 rounded-md bg-brandcolor-primary px-3 py-1.5 text-sm text-brandcolor-white hover:bg-brandcolor-primaryhover">Action</button>'
             "</section>"
         )
     if "json" in lower and "nodes" in lower:
@@ -97,18 +97,18 @@ def mock_generate_content(prompt: str) -> str:
         return json.dumps(
             {
                 "html": (
-                    '<section class="p-card-pad-default rounded-lg border border-brandcolor-200 bg-white">'
-                    '<h2 class="text-lg font-semibold text-brandcolor-900">Panel</h2>'
+                    '<section class="p-card-pad-default rounded-lg border border-brandcolor-strokeweak bg-brandcolor-white">'
+                    '<h2 class="text-lg font-semibold text-brandcolor-textstrong">Panel</h2>'
                     "</section>"
                 )
             }
         )
     return (
-        '<section class="p-card-pad-default rounded-lg border border-brandcolor-200 bg-white">'
-        '<p class="text-xs uppercase tracking-wide text-brandcolor-500">HTML creator</p>'
-        '<h2 class="mt-1 text-lg font-semibold text-brandcolor-900">Generated block</h2>'
-        '<p class="mt-2 text-sm text-brandcolor-700">Mock fragment using brandcolor tokens.</p>'
-        '<button type="button" class="mt-4 rounded-md bg-brandcolor-700 px-3 py-1.5 text-sm text-white">Action</button>'
+        '<section class="p-card-pad-default rounded-lg border border-brandcolor-strokeweak bg-brandcolor-white">'
+        '<p class="text-xs uppercase tracking-wide text-brandcolor-textweak">HTML creator</p>'
+        '<h2 class="mt-1 text-lg font-semibold text-brandcolor-textstrong">Generated block</h2>'
+        '<p class="mt-2 text-sm text-brandcolor-textweak">Mock fragment using brandcolor tokens.</p>'
+        '<button type="button" class="mt-4 rounded-md bg-brandcolor-primary px-3 py-1.5 text-sm text-brandcolor-white hover:bg-brandcolor-primaryhover">Action</button>'
         "</section>"
     )
 

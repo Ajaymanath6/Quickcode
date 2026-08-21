@@ -17,7 +17,7 @@ export default function ThemeConfigurationNavSection() {
       <NavLink to="/catalog/theme/colors" className={() => navRowClass(parentActive)}>
         Theme configuration
       </NavLink>
-      <div className="ml-3 mt-1 border-l border-brandcolor-200 pl-2">
+      <div className="ml-3 mt-1 border-l border-brandcolor-strokeweak pl-2">
         {THEME_LINKS.map((link) => (
           <NavLink
             key={link.to}

@@ -26,14 +26,14 @@ export default function CatalogCollectionPage({ title, subtitle, mode }: Props) 
   const modal = useCatalogModal(cards)
 
   if (error) {
-    return <p className="p-6 text-sm text-brandcolor-warning">{error}</p>
+    return <p className="p-6 text-sm text-brandcolor-banner-warning-button">{error}</p>
   }
 
   return (
     <div className="mx-auto max-w-7xl space-y-5 p-6">
       <div>
         <h2 className="text-2xl font-semibold">{title}</h2>
-        <p className="mt-1 text-sm text-brandcolor-500">
+        <p className="mt-1 text-sm text-brandcolor-textweak">
           {search.filteredCards.length} {subtitle}
         </p>
       </div>
@@ -50,7 +50,7 @@ export default function CatalogCollectionPage({ title, subtitle, mode }: Props) 
       {loading ? (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {[0, 1, 2, 3].map((item) => (
-            <div key={item} className="aspect-[278/209] animate-pulse rounded-xl bg-brandcolor-100" />
+            <div key={item} className="aspect-[278/209] animate-pulse rounded-xl bg-brandcolor-neutralhover" />
           ))}
         </div>
       ) : search.filteredCards.length === 0 ? (

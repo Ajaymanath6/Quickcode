@@ -39,18 +39,18 @@ export default function ComponentsCanvasPromptPanel({ nodes }: { nodes: CanvasNo
   )
 
   return (
-    <div className="pointer-events-auto w-[min(100%,560px)] rounded-xl border border-brandcolor-200 bg-white/95 p-2 shadow-lg backdrop-blur">
+    <div className="pointer-events-auto w-[min(100%,560px)] rounded-xl border border-brandcolor-strokeweak bg-white/95 p-2 shadow-lg backdrop-blur">
       <div className="flex gap-1 text-canvas-xs">
         <button
           type="button"
-          className={`rounded px-2 py-0.5 ${ai.mode === 'plan' ? 'bg-brandcolor-100 font-medium' : 'text-brandcolor-500'}`}
+          className={`rounded px-2 py-0.5 ${ai.mode === 'plan' ? 'bg-brandcolor-neutralhover font-medium' : 'text-brandcolor-textweak'}`}
           onClick={() => ai.setMode('plan')}
         >
           Plan
         </button>
         <button
           type="button"
-          className={`rounded px-2 py-0.5 ${ai.mode === 'html' ? 'bg-brandcolor-100 font-medium' : 'text-brandcolor-500'}`}
+          className={`rounded px-2 py-0.5 ${ai.mode === 'html' ? 'bg-brandcolor-neutralhover font-medium' : 'text-brandcolor-textweak'}`}
           onClick={() => ai.setMode('html')}
         >
           HTML creator
@@ -64,7 +64,7 @@ export default function ComponentsCanvasPromptPanel({ nodes }: { nodes: CanvasNo
               <button
                 key={id}
                 type="button"
-                className="rounded bg-brandcolor-100 px-1.5 py-0.5 text-canvas-xs"
+                className="rounded bg-brandcolor-neutralhover px-1.5 py-0.5 text-canvas-xs"
                 onClick={() => ai.removeMention(id)}
               >
                 @{node ? nodeTitle(node) : 'block'} ×
@@ -77,7 +77,7 @@ export default function ComponentsCanvasPromptPanel({ nodes }: { nodes: CanvasNo
         <textarea
           ref={textareaRef}
           rows={2}
-          className="w-full resize-none rounded-md border border-brandcolor-200 px-2 py-1.5 pr-9 text-sm"
+          className="w-full resize-none rounded-md border border-brandcolor-strokeweak px-2 py-1.5 pr-9 text-sm"
           placeholder={
             ai.mode === 'plan' ? 'Plan components to place…' : 'Describe HTML to generate…'
           }
@@ -97,7 +97,7 @@ export default function ComponentsCanvasPromptPanel({ nodes }: { nodes: CanvasNo
         />
         <button
           type="button"
-          className="absolute bottom-2 right-2 text-brandcolor-700 disabled:opacity-40"
+          className="absolute bottom-2 right-2 text-brandcolor-textstrong disabled:opacity-40"
           disabled={ai.busy}
           onClick={() => void ai.submit()}
           aria-label="Send"
@@ -105,12 +105,12 @@ export default function ComponentsCanvasPromptPanel({ nodes }: { nodes: CanvasNo
           <RiSendPlane2Line className="size-4" />
         </button>
         {mentionOpen && mentionChoices.length > 0 ? (
-          <ul className="absolute bottom-full mb-1 max-h-36 w-full overflow-auto rounded-md border border-brandcolor-200 bg-white text-canvas-ui shadow">
+          <ul className="absolute bottom-full mb-1 max-h-36 w-full overflow-auto rounded-md border border-brandcolor-strokeweak bg-white text-canvas-ui shadow">
             {mentionChoices.map((node) => (
               <li key={node.id}>
                 <button
                   type="button"
-                  className="w-full px-2 py-1 text-left hover:bg-brandcolor-50"
+                  className="w-full px-2 py-1 text-left hover:bg-brandcolor-fill"
                   onClick={() => {
                     ai.addMention(node.id)
                     ai.setDraft(ai.draft.replace(/@[^@]*$/, ''))
@@ -118,14 +118,14 @@ export default function ComponentsCanvasPromptPanel({ nodes }: { nodes: CanvasNo
                   }}
                 >
                   {nodeTitle(node)}
-                  <span className="ml-1 text-brandcolor-500">{node.kind}</span>
+                  <span className="ml-1 text-brandcolor-textweak">{node.kind}</span>
                 </button>
               </li>
             ))}
           </ul>
         ) : null}
       </div>
-      <div className="mt-1 flex flex-wrap items-center gap-2 text-canvas-xs text-brandcolor-700">
+      <div className="mt-1 flex flex-wrap items-center gap-2 text-canvas-xs text-brandcolor-textstrong">
         <label className="flex items-center gap-1">
           <input
             type="checkbox"
@@ -152,10 +152,10 @@ export default function ComponentsCanvasPromptPanel({ nodes }: { nodes: CanvasNo
             Add as new instead
           </label>
         ) : null}
-        {ai.busy ? <span className="text-brandcolor-500">Generating…</span> : null}
+        {ai.busy ? <span className="text-brandcolor-textweak">Generating…</span> : null}
       </div>
       {ai.error ? (
-        <p className="mt-1 rounded bg-brandcolor-warning-soft px-2 py-1 text-canvas-ui text-brandcolor-warning">
+        <p className="mt-1 rounded bg-brandcolor-banner-warning-bg px-2 py-1 text-canvas-ui text-brandcolor-banner-warning-button">
           {ai.error}
         </p>
       ) : null}

@@ -1,0 +1,25 @@
+{
+  "id": "canvas:primaryButton:21e6dfb4-b2e4-4729-a432-1e0a44cace3f",
+  "componentId": "canvas:primaryButton:21e6dfb4-b2e4-4729-a432-1e0a44cace3f",
+  "label": "Primary action",
+  "name": "Primary action",
+  "imageAlt": "Primary action",
+  "sourceHtml": "<button type=\"button\" class=\"rounded-md bg-brandcolor-primary px-4 py-2 text-sm font-medium text-white\">Primary action</button>",
+  "description": "fd",
+  "sealed": true,
+  "kind": "component",
+  "blueprint": {
+    "id": "21e6dfb4-b2e4-4729-a432-1e0a44cace3f",
+    "kind": "primaryButton",
+    "x": 440,
+    "y": 120,
+    "label": "Primary action",
+    "data": {
+      "imageAlt": "Primary action"
+    }
+  },
+  "hasBlueprint": true,
+  "blueprintPath": "public/blueprints/canvas-primaryButton-21e6dfb4-b2e4-4729-a432-1e0a44cace3f.json",
+  "publishedAt": "2026-08-20T12:16:34.793737+00:00",
+  "isLayout": false
+}

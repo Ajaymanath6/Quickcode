@@ -8,7 +8,10 @@ KNOWLEDGE = os.path.join(os.path.dirname(__file__), "..", "knowledge", "token-he
 def token_help_snippets(prompt: str, limit: int = 4) -> List[str]:
     path = os.path.abspath(KNOWLEDGE)
     if not os.path.isfile(path):
-        return ["Use brandcolor-700 for primary actions; p-card-pad-default for card inset."]
+        return [
+            "Use bg-brandcolor-primary text-brandcolor-white for primary actions; "
+            "p-card-pad-default for card inset."
+        ]
     with open(path, encoding="utf-8") as handle:
         data = json.load(handle)
     items = data.get("tokens", [])

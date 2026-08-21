@@ -1,6 +1,6 @@
 from typing import Any, Dict, Optional
 
-from theme_context.chunks import load_guide_chunks
+from theme_context.chunks import load_guide_chunks, load_guide_raw_text
 from theme_context.config import (
     THEME_CONTEXT_EXTENDED_MAX_CHARS,
     THEME_CONTEXT_MAX_CHARS,
@@ -57,8 +57,7 @@ def _smart(prompt: str, theme_snapshot: Optional[Dict[str, Any]], extended: bool
 
 
 def _legacy(extended: bool) -> str:
-    chunks = load_guide_chunks()
-    text = "Theme context (legacy):\n" + "\n".join(chunk.text for chunk in chunks)
+    text = "Theme context (legacy):\n" + load_guide_raw_text()
     if extended:
         text += "\n" + filtered_tailwind_snippet()
     return text

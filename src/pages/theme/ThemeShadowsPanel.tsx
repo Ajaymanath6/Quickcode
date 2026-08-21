@@ -23,22 +23,22 @@ export default function ThemeShadowsPanel() {
   return (
     <div className="grid gap-4 sm:grid-cols-3">
       {SHADOW_KEYS.map((key) => (
-        <section key={key} className="rounded-xl border border-brandcolor-200 bg-white p-4">
+        <section key={key} className="rounded-xl border border-brandcolor-strokeweak bg-white p-4">
           <div
-            className="mb-3 h-20 rounded-lg border border-brandcolor-200 bg-white"
+            className="mb-3 h-20 rounded-lg border border-brandcolor-strokeweak bg-white"
             style={{ boxShadow: theme.draft.shadows[key] }}
           />
-          <label className="block text-[13px] text-brandcolor-700">
+          <label className="block text-[13px] text-brandcolor-textstrong">
             {key}
             <textarea
               rows={3}
-              className="mt-1 w-full rounded-md border border-brandcolor-200 px-2 py-1 font-mono text-[12px]"
+              className="mt-1 w-full rounded-md border border-brandcolor-strokeweak px-2 py-1 font-mono text-[12px]"
               value={theme.draft.shadows[key]}
               onChange={(event) => update(key, event.target.value)}
             />
           </label>
           {theme.errors[`shadow:${key}`] ? (
-            <p className="mt-1 text-[11px] text-brandcolor-warning">
+            <p className="mt-1 text-[11px] text-brandcolor-banner-warning-button">
               {theme.errors[`shadow:${key}`]}
             </p>
           ) : null}

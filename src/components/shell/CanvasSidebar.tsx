@@ -39,13 +39,13 @@ export default function CanvasSidebar() {
       <SidebarBrandHeader />
       <SidebarDesignSystemNavLink />
       <div className="px-3 pb-2">
-        <div className="grid grid-cols-2 gap-1 rounded-lg border border-brandcolor-200 bg-brandcolor-50 p-0.5">
+        <div className="grid grid-cols-2 gap-1 rounded-lg border border-brandcolor-strokeweak bg-brandcolor-fill p-0.5">
           <button
             type="button"
             className={`rounded-md px-2 py-1.5 text-[13px] ${
               !layoutMode
-                ? 'border border-brandcolor-200 bg-white font-medium'
-                : 'border border-transparent text-brandcolor-500'
+                ? 'border border-brandcolor-strokeweak bg-white font-medium'
+                : 'border border-transparent text-brandcolor-textweak'
             }`}
             onClick={() => {
               params.delete('view')
@@ -58,8 +58,8 @@ export default function CanvasSidebar() {
             type="button"
             className={`rounded-md px-2 py-1.5 text-[13px] ${
               layoutMode
-                ? 'border border-brandcolor-200 bg-white font-medium'
-                : 'border border-transparent text-brandcolor-500'
+                ? 'border border-brandcolor-strokeweak bg-white font-medium'
+                : 'border border-transparent text-brandcolor-textweak'
             }`}
             onClick={() => setParams({ view: 'layout' }, { replace: true })}
           >
@@ -69,17 +69,17 @@ export default function CanvasSidebar() {
       </div>
       {layoutMode ? (
         <div className="min-h-0 flex-1 overflow-auto px-3 py-2">
-          <p className="mb-2 text-[11px] uppercase tracking-wide text-brandcolor-500">
+          <p className="mb-2 text-[11px] uppercase tracking-wide text-brandcolor-textweak">
             Recent layouts
           </p>
           {workspace.entries.length === 0 ? (
-            <p className="text-[13px] text-brandcolor-500">No layout prompts yet.</p>
+            <p className="text-[13px] text-brandcolor-textweak">No layout prompts yet.</p>
           ) : (
             <ul className="space-y-1.5">
               {workspace.entries.map((entry) => (
                 <li
                   key={entry.id}
-                  className="rounded-md border border-brandcolor-200 bg-white px-2 py-1.5 text-[13px]"
+                  className="rounded-md border border-brandcolor-strokeweak bg-white px-2 py-1.5 text-[13px]"
                 >
                   {entry.prompt}
                 </li>
@@ -92,7 +92,7 @@ export default function CanvasSidebar() {
       )}
       {layoutMode ? (
         <form
-          className="border-t border-brandcolor-200 p-3"
+          className="border-t border-brandcolor-strokeweak p-3"
           onSubmit={(event) => {
             event.preventDefault()
             const prompt = draft.trim()
@@ -105,7 +105,7 @@ export default function CanvasSidebar() {
             setMentionOpen(false)
           }}
         >
-          <p className="mb-1 text-[11px] uppercase tracking-wide text-brandcolor-500">Ask…</p>
+          <p className="mb-1 text-[11px] uppercase tracking-wide text-brandcolor-textweak">Ask…</p>
           {mentionedIds.length > 0 ? (
             <div className="mb-1 flex flex-wrap gap-1">
               {mentionedIds.map((id) => {
@@ -121,7 +121,7 @@ export default function CanvasSidebar() {
           <div className="relative">
             <textarea
               rows={2}
-              className="w-full rounded-md border border-brandcolor-200 bg-white px-2 py-1.5 text-[13px]"
+              className="w-full rounded-md border border-brandcolor-strokeweak bg-white px-2 py-1.5 text-[13px]"
               placeholder="Describe a layout… use @ to mention published components"
               value={draft}
               onChange={(event) => {
@@ -131,12 +131,12 @@ export default function CanvasSidebar() {
               }}
             />
             {mentionOpen && mentionChoices.length > 0 ? (
-              <ul className="absolute bottom-full mb-1 max-h-32 w-full overflow-auto rounded-md border border-brandcolor-200 bg-white text-[13px] shadow">
+              <ul className="absolute bottom-full mb-1 max-h-32 w-full overflow-auto rounded-md border border-brandcolor-strokeweak bg-white text-[13px] shadow">
                 {mentionChoices.map((entry) => (
                   <li key={entry.componentId}>
                     <button
                       type="button"
-                      className="w-full px-2 py-1 text-left hover:bg-brandcolor-50"
+                      className="w-full px-2 py-1 text-left hover:bg-brandcolor-fill"
                       onClick={() => {
                         setMentionedIds((current) =>
                           current.includes(entry.componentId)
@@ -156,7 +156,7 @@ export default function CanvasSidebar() {
           </div>
           <button
             type="submit"
-            className="mt-2 w-full rounded-md bg-brandcolor-700 px-2 py-1.5 text-[13px] text-white"
+            className="mt-2 w-full rounded-md bg-brandcolor-primary px-2 py-1.5 text-[13px] text-white"
           >
             Generate layout
           </button>

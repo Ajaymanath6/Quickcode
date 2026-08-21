@@ -1,24 +1,355 @@
 {
+  "canonicalPath": "src/config/theme-guide.json",
+  "note": "Fallback chunk projection. LLM agent reads src/config/theme-guide.json.",
   "chunks": [
     {
-      "id": "color",
-      "keywords": ["color", "brand", "primary", "button"],
-      "text": "Fills brandcolor-50/100, strokes brandcolor-200, text brandcolor-900, actions brandcolor-700."
+      "id": "brandcolor-primary",
+      "keywords": [
+        "primary",
+        "color",
+        "brand",
+        "primary/cta buttons background",
+        "main brand color elements",
+        "active states",
+        "primary actions"
+      ],
+      "text": "brandcolor-primary (#F5C251): Main CTA button background, primary brand color. Classes: bg-brandcolor-primary, text-brandcolor-primary, border-brandcolor-primary."
+    },
+    {
+      "id": "brandcolor-primaryhover",
+      "keywords": [
+        "primaryhover",
+        "color",
+        "brand",
+        "primary button hover state"
+      ],
+      "text": "brandcolor-primaryhover (#F3B42A): Hover state for primary buttons. Classes: bg-brandcolor-primaryhover."
+    },
+    {
+      "id": "brandcolor-secondary",
+      "keywords": [
+        "secondary",
+        "color",
+        "brand",
+        "secondary button background",
+        "outline button border and text"
+      ],
+      "text": "brandcolor-secondary (#2B6CB0): Secondary brand color for outline/secondary buttons. Classes: bg-brandcolor-secondary, text-brandcolor-secondary, border-brandcolor-secondary."
+    },
+    {
+      "id": "brandcolor-secondaryfill",
+      "keywords": [
+        "secondaryfill",
+        "color",
+        "brand",
+        "active secondary controls",
+        "selected pill backgrounds"
+      ],
+      "text": "brandcolor-secondaryfill (#EEF2F7): Secondary fill for active/selected light backgrounds. Classes: bg-brandcolor-secondaryfill."
+    },
+    {
+      "id": "brandcolor-secondaryhover",
+      "keywords": [
+        "secondaryhover",
+        "color",
+        "brand",
+        "secondary button hover"
+      ],
+      "text": "brandcolor-secondaryhover (#23588F): Hover for secondary filled buttons. Classes: bg-brandcolor-secondaryhover."
+    },
+    {
+      "id": "brandcolor-neutralhover",
+      "keywords": [
+        "neutralhover",
+        "color",
+        "brand",
+        "neutral button hover",
+        "outline button hover"
+      ],
+      "text": "brandcolor-neutralhover (#EFEFEF): Hover for neutral/outline buttons \u2014 not fill. Classes: bg-brandcolor-neutralhover."
+    },
+    {
+      "id": "brandcolor-textstrong",
+      "keywords": [
+        "textstrong",
+        "color",
+        "brand",
+        "h1\u2013h3",
+        "primary labels",
+        "important text"
+      ],
+      "text": "brandcolor-textstrong (#333333): Headings and primary text. Classes: text-brandcolor-textstrong."
+    },
+    {
+      "id": "brandcolor-textweak",
+      "keywords": [
+        "textweak",
+        "color",
+        "brand",
+        "body copy",
+        "helper text",
+        "descriptions"
+      ],
+      "text": "brandcolor-textweak (#696969): Secondary body text. Classes: text-brandcolor-textweak."
+    },
+    {
+      "id": "brandcolor-strokestrong",
+      "keywords": [
+        "strokestrong",
+        "color",
+        "brand",
+        "sidebar borders",
+        "input borders",
+        "button borders",
+        "icons"
+      ],
+      "text": "brandcolor-strokestrong (#696969): Sidebar, input, and most button borders. Classes: border-brandcolor-strokestrong, text-brandcolor-strokestrong."
+    },
+    {
+      "id": "brandcolor-strokeweak",
+      "keywords": [
+        "strokeweak",
+        "color",
+        "brand",
+        "card borders",
+        "dividers",
+        "secondary button borders"
+      ],
+      "text": "brandcolor-strokeweak (#E8E8E8): Card borders and dividers. Classes: border-brandcolor-strokeweak."
+    },
+    {
+      "id": "brandcolor-strokemild",
+      "keywords": [
+        "strokemild",
+        "color",
+        "brand",
+        "hovered table row borders"
+      ],
+      "text": "brandcolor-strokemild (#858585): Table row hover borders. Classes: border-brandcolor-strokemild."
+    },
+    {
+      "id": "brandcolor-strokelight",
+      "keywords": [
+        "strokelight",
+        "color",
+        "brand",
+        "primary-outline button border"
+      ],
+      "text": "brandcolor-strokelight (#F6F6F6): Primary-outline button default border / light strokes. Classes: border-brandcolor-strokelight."
+    },
+    {
+      "id": "brandcolor-fill",
+      "keywords": [
+        "fill",
+        "color",
+        "brand",
+        "page backgrounds",
+        "section fills"
+      ],
+      "text": "brandcolor-fill (#FAFAFA): Layout and section backgrounds. Classes: bg-brandcolor-fill."
+    },
+    {
+      "id": "brandcolor-white",
+      "keywords": [
+        "white",
+        "color",
+        "brand",
+        "cards",
+        "modals",
+        "primary button label"
+      ],
+      "text": "brandcolor-white (#FFFFFF): Card/modal surfaces and text on primary. Classes: bg-brandcolor-white, text-brandcolor-white."
+    },
+    {
+      "id": "brandcolor-sidebarhover",
+      "keywords": [
+        "sidebarhover",
+        "color",
+        "brand",
+        "sidebar item hover",
+        "dropdown menu backgrounds"
+      ],
+      "text": "brandcolor-sidebarhover (#2E3C48): Sidebar menu hover / dark dropdowns. Classes: bg-brandcolor-sidebarhover, hover:bg-brandcolor-sidebarhover."
+    },
+    {
+      "id": "brandcolor-divider",
+      "keywords": [
+        "divider",
+        "color",
+        "brand",
+        "list separators"
+      ],
+      "text": "brandcolor-divider (#E8E8E8): Hairline dividers. Classes: border-brandcolor-divider, bg-brandcolor-divider."
+    },
+    {
+      "id": "brandcolor-banner-info-bg",
+      "keywords": [
+        "banner-info-bg",
+        "color",
+        "brand",
+        "info banners"
+      ],
+      "text": "brandcolor-banner-info-bg (#FFE4D6): Informational banner background. Classes: bg-brandcolor-banner-info-bg."
+    },
+    {
+      "id": "brandcolor-banner-warning-bg",
+      "keywords": [
+        "banner-warning-bg",
+        "color",
+        "brand",
+        "warning banners"
+      ],
+      "text": "brandcolor-banner-warning-bg (#FFEBE1): Warning banner background. Classes: bg-brandcolor-banner-warning-bg."
+    },
+    {
+      "id": "brandcolor-banner-warning-button",
+      "keywords": [
+        "banner-warning-button",
+        "color",
+        "brand",
+        "warning banner buttons"
+      ],
+      "text": "brandcolor-banner-warning-button (#F5C251): Warning banner CTA. Classes: bg-brandcolor-banner-warning-button, text-brandcolor-white."
+    },
+    {
+      "id": "brandcolor-results-bg",
+      "keywords": [
+        "results-bg",
+        "color",
+        "brand",
+        "results layouts"
+      ],
+      "text": "brandcolor-results-bg (#F8F9FB): Results / scrollable content background. Classes: bg-brandcolor-results-bg."
+    },
+    {
+      "id": "brandcolor-archived-bg",
+      "keywords": [
+        "archived-bg",
+        "color",
+        "brand",
+        "archived cards"
+      ],
+      "text": "brandcolor-archived-bg (#FBF8E7): Archived card background. Classes: bg-brandcolor-archived-bg."
+    },
+    {
+      "id": "brandcolor-archived-border",
+      "keywords": [
+        "archived-border",
+        "color",
+        "brand",
+        "archived card borders"
+      ],
+      "text": "brandcolor-archived-border (#A5A5A5): Archived card dashed border. Classes: border-brandcolor-archived-border."
+    },
+    {
+      "id": "brandcolor-archived-badge",
+      "keywords": [
+        "archived-badge",
+        "color",
+        "brand",
+        "archived badges"
+      ],
+      "text": "brandcolor-archived-badge (#E8E8E8): Archived badge background. Classes: bg-brandcolor-archived-badge."
+    },
+    {
+      "id": "brandcolor-destructive",
+      "keywords": [
+        "destructive",
+        "color",
+        "brand",
+        "archive menu items",
+        "destructive labels"
+      ],
+      "text": "brandcolor-destructive (#C20205): Destructive / archive action color. Classes: text-brandcolor-destructive, bg-brandcolor-destructive."
+    },
+    {
+      "id": "brandcolor-table-header",
+      "keywords": [
+        "table-header",
+        "color",
+        "brand",
+        "table headers"
+      ],
+      "text": "brandcolor-table-header (#DDDDDD): Table header background. Classes: bg-brandcolor-table-header."
+    },
+    {
+      "id": "brandcolor-badge-success-bg",
+      "keywords": [
+        "badge-success-bg",
+        "color",
+        "brand",
+        "success badges"
+      ],
+      "text": "brandcolor-badge-success-bg (#E2F3E0): Success badge background. Classes: bg-brandcolor-badge-success-bg."
+    },
+    {
+      "id": "brandcolor-badge-success-text",
+      "keywords": [
+        "badge-success-text",
+        "color",
+        "brand",
+        "success badge labels"
+      ],
+      "text": "brandcolor-badge-success-text (#028831): Success badge text. Classes: text-brandcolor-badge-success-text."
+    },
+    {
+      "id": "brandcolor-badge-attorney-bg",
+      "keywords": [
+        "badge-attorney-bg",
+        "color",
+        "brand",
+        "entity badges"
+      ],
+      "text": "brandcolor-badge-attorney-bg (#F2EBFF): Attorney badge background. Classes: bg-brandcolor-badge-attorney-bg."
+    },
+    {
+      "id": "brandcolor-badge-attorney-text",
+      "keywords": [
+        "badge-attorney-text",
+        "color",
+        "brand",
+        "entity badge labels"
+      ],
+      "text": "brandcolor-badge-attorney-text (#6238AA): Attorney badge text. Classes: text-brandcolor-badge-attorney-text."
+    },
+    {
+      "id": "brandcolor-badge-amber-bg",
+      "keywords": [
+        "badge-amber-bg",
+        "color",
+        "brand",
+        "warning entity badges"
+      ],
+      "text": "brandcolor-badge-amber-bg (#FFF7DB): Amber badge background. Classes: bg-brandcolor-badge-amber-bg."
+    },
+    {
+      "id": "brandcolor-badge-amber-text",
+      "keywords": [
+        "badge-amber-text",
+        "color",
+        "brand",
+        "amber badge labels"
+      ],
+      "text": "brandcolor-badge-amber-text (#A47800): Amber badge text. Classes: text-brandcolor-badge-amber-text."
+    },
+    {
+      "id": "buttons",
+      "keywords": [
+        "button",
+        "cta",
+        "primary"
+      ],
+      "text": "border-[1.5px] border-transparent bg-brandcolor-primary text-brandcolor-white hover:bg-brandcolor-primaryhover focus:border-brandcolor-primary active:border-brandcolor-primary active:shadow-button-press disabled:opacity-50 rounded-md"
     },
     {
       "id": "spacing",
-      "keywords": ["spacing", "gap", "padding", "card"],
-      "text": "Semantic spacing: gap-micro, p-cozy, p-card-pad-default. One outer inset only."
-    },
-    {
-      "id": "type",
-      "keywords": ["type", "font", "heading", "label"],
-      "text": "Headings short. Body in brandcolor-700. Never paste the full user brief into a title."
-    },
-    {
-      "id": "layout",
-      "keywords": ["layout", "sidebar", "row", "split"],
-      "text": "Layout plans may only reference published catalog ids from the client allowlist."
+      "keywords": [
+        "spacing",
+        "gap",
+        "padding",
+        "card"
+      ],
+      "text": "Prefer micro/tight/cozy/section/hero/inline and card-pad-* / card-gap-* spacing tokens."
     }
   ]
 }

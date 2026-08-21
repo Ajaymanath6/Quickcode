@@ -23,7 +23,7 @@ export default function ThemeColorsPanel() {
   return (
     <div className="space-y-4">
       <div
-        className="flex overflow-hidden rounded-xl border border-brandcolor-200"
+        className="flex overflow-hidden rounded-xl border border-brandcolor-strokeweak"
         aria-hidden
       >
         {COLOR_GROUPS.flatMap((group) => group.keys).map((key) => (
@@ -31,25 +31,25 @@ export default function ThemeColorsPanel() {
         ))}
       </div>
       {COLOR_GROUPS.map((group) => (
-        <section key={group.title} className="rounded-xl border border-brandcolor-200 bg-white p-4">
-          <h3 className="mb-3 text-[13px] font-semibold text-brandcolor-900">{group.title}</h3>
+        <section key={group.title} className="rounded-xl border border-brandcolor-strokeweak bg-white p-4">
+          <h3 className="mb-3 text-[13px] font-semibold text-brandcolor-textstrong">{group.title}</h3>
           <div className="grid gap-3 sm:grid-cols-2">
             {group.keys.map((key) => (
-              <label key={key} className="block text-[13px] text-brandcolor-700">
+              <label key={key} className="block text-[13px] text-brandcolor-textstrong">
                 <span className="flex items-center gap-2">
                   <span
-                    className="size-5 rounded border border-brandcolor-200"
+                    className="size-5 rounded border border-brandcolor-strokeweak"
                     style={{ background: theme.draft.colors[key] }}
                   />
                   brandcolor-{key}
                 </span>
                 <input
-                  className="mt-1 w-full rounded-md border border-brandcolor-200 px-2 py-1 font-mono text-[13px]"
+                  className="mt-1 w-full rounded-md border border-brandcolor-strokeweak px-2 py-1 font-mono text-[13px]"
                   value={theme.draft.colors[key]}
                   onChange={(event) => update(key, event.target.value)}
                 />
                 {theme.errors[`color:${key}`] ? (
-                  <span className="text-[11px] text-brandcolor-warning">
+                  <span className="text-[11px] text-brandcolor-banner-warning-button">
                     {theme.errors[`color:${key}`]}
                   </span>
                 ) : null}
