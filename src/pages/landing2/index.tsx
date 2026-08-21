@@ -5,7 +5,6 @@ import {
   RiBox3Line,
   RiBuilding2Line,
   RiChat1Line,
-  RiCheckLine,
   RiClipboardLine,
   RiCloudLine,
   RiCursorLine,
@@ -27,13 +26,6 @@ import {
   RiUploadCloud2Line,
 } from '@remixicon/react'
 import BrandLogo from '@/components/BrandLogo'
-
-const HERO_FEATURES = [
-  'Supports native documents, PSTs, MBOX, Load file productions, & more',
-  'Automatic processing at no extra charge',
-  'Pay-as-you-go, transparent, and prorated pricing',
-  'Unlimited collaborators, no user fees',
-] as const
 
 const WHY_FEATURES = [
   {
@@ -221,7 +213,7 @@ function YellowCta({ href, children }: { href: string; children: string }) {
   return (
     <a
       href={href}
-      className="mt-8 inline-flex rounded-md bg-brandcolor-primary px-6 py-3 text-sm font-semibold text-brandcolor-textstrong transition-colors hover:bg-brandcolor-primaryhover"
+      className="mt-8 inline-flex rounded-none bg-brandcolor-primary px-6 py-3 text-sm font-semibold text-brandcolor-textstrong transition-colors hover:bg-brandcolor-primaryhover"
     >
       {children}
     </a>
@@ -233,13 +225,13 @@ function CtaPair() {
     <div className="mt-14 flex flex-wrap items-center justify-center gap-4">
       <a
         href="#how-it-works"
-        className="inline-flex rounded-md bg-brandcolor-secondary px-6 py-3 text-sm font-semibold text-brandcolor-white transition-colors hover:bg-brandcolor-secondaryhover"
+        className="inline-flex rounded-none bg-brandcolor-secondary px-6 py-3 text-sm font-semibold text-brandcolor-white transition-colors hover:bg-brandcolor-secondaryhover"
       >
         See how it works »
       </a>
       <a
         href="#signup"
-        className="inline-flex rounded-md bg-brandcolor-primary px-6 py-3 text-sm font-semibold text-brandcolor-textstrong transition-colors hover:bg-brandcolor-primaryhover"
+        className="inline-flex rounded-none bg-brandcolor-primary px-6 py-3 text-sm font-semibold text-brandcolor-textstrong transition-colors hover:bg-brandcolor-primaryhover"
       >
         Create a free account »
       </a>
@@ -255,72 +247,49 @@ export default function LandingPage() {
     <div className="font-lato">
       <section
         id="features"
-        className="landing-hero relative isolate overflow-hidden px-4 py-16 text-brandcolor-white sm:px-8 sm:py-20"
+        className="landing-hero relative isolate overflow-hidden px-4 pb-10 pt-24 text-brandcolor-white sm:px-8"
       >
         <div className="pointer-events-none absolute inset-0 -z-10 bg-[#1a1a1a]" aria-hidden />
         <div className="landing-hero-waves pointer-events-none absolute inset-0 -z-10 opacity-40" aria-hidden />
 
-        <div className="mx-auto max-w-5xl">
-          <h1 className="font-catamaran text-center text-4xl font-semibold tracking-tight text-brandcolor-white sm:text-5xl">
-            Affordable eDiscovery
-          </h1>
+        <div className="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-2 md:gap-12">
+          <div className="text-left">
+            <h1 className="font-catamaran text-[clamp(1.5rem,3.2vw,2.75rem)] font-medium leading-tight tracking-[-0.02em] text-brandcolor-white">
+              Powerful eDiscovery. Without the enterprise price tag.
+            </h1>
+            <p className="mt-5 max-w-xl font-lato text-[1.125rem] font-medium leading-[1.75rem] text-white/75">
+              GoldFynch makes it simple to collect, search, review, and produce case documents — with
+              transparent pricing, unlimited collaborators, and no complicated setup.
+            </p>
 
-          <div className="mt-12 grid gap-12 md:grid-cols-2 md:items-start md:gap-16">
-            <div>
-              <ul className="space-y-5">
-                {HERO_FEATURES.map((feature) => (
-                  <li
-                    key={feature}
-                    className="flex gap-3 text-base leading-snug text-brandcolor-white sm:text-lg"
-                  >
-                    <span
-                      className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-sm border border-brandcolor-primary text-brandcolor-primary"
-                      aria-hidden
-                    >
-                      <RiCheckLine className="size-4" />
-                    </span>
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
+            <div className="mt-10 flex flex-wrap items-center gap-4">
               <a
-                href="#how-it-works"
-                className="mt-10 inline-flex rounded-md border border-brandcolor-primary px-5 py-2.5 text-sm font-medium text-brandcolor-primary transition-colors hover:bg-brandcolor-primary hover:text-brandcolor-textstrong"
-              >
-                See how it works
-              </a>
-            </div>
-
-            <div id="schedule-demo" className="flex flex-col gap-4 md:pt-1">
-              <a
-                href="#schedule-demo"
-                className="flex w-full items-center justify-center rounded-md bg-brandcolor-primary px-6 py-3.5 text-center text-base font-semibold text-brandcolor-textstrong transition-colors hover:bg-brandcolor-primaryhover"
-              >
-                Schedule Demo
-              </a>
-              <a
-                href="#signup"
                 id="signup"
-                className="flex w-full items-center justify-center rounded-md bg-brandcolor-primary px-6 py-3.5 text-center text-base font-semibold text-brandcolor-textstrong transition-colors hover:bg-brandcolor-primaryhover"
+                href="#signup"
+                className="inline-flex rounded-none border border-brandcolor-primary/90 bg-transparent px-6 py-3 text-sm font-semibold text-brandcolor-primary transition-colors hover:bg-brandcolor-primary/10"
               >
-                Sign Up for Free in Seconds
+                Start your free case →
               </a>
-              <p className="mt-1 text-sm leading-relaxed text-white/70">
-                Signup online and get started in just a few simple steps. You&apos;ll get a free case
-                to try GoldFynch out - no sales call, no credit card required.
-              </p>
+              <a
+                id="schedule-demo"
+                href="#schedule-demo"
+                className="inline-flex rounded-none border border-brandcolor-white bg-brandcolor-white px-6 py-3 text-sm font-semibold text-brandcolor-textstrong transition-colors hover:bg-brandcolor-fill"
+              >
+                Get started
+              </a>
             </div>
           </div>
 
-          <div className="mt-14 overflow-hidden rounded-lg border border-white/10 bg-[#111] shadow-lg">
-            <img
-              src="/landing/dashboard-mock.png"
-              alt="GoldFynch workspace preview with search, sidebar tools, and case panels"
-              className="block h-auto w-full"
-              width={1200}
-              height={720}
-            />
+          <div id="how-it-works" className="flex justify-center md:justify-end">
+            <div className="w-full max-w-md overflow-hidden rounded-lg border border-white/10 bg-[#111] shadow-lg sm:max-w-lg">
+              <img
+                src="/landing/dashboard-mock.png"
+                alt="See how it works — GoldFynch workspace preview"
+                className="block h-auto w-full"
+                width={800}
+                height={480}
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -363,13 +332,13 @@ export default function LandingPage() {
           <div className="mt-14 flex flex-wrap items-center justify-center gap-4">
             <a
               href="#how-it-works"
-              className="inline-flex rounded-md bg-brandcolor-secondary px-6 py-3 text-sm font-semibold text-brandcolor-white transition-colors hover:bg-brandcolor-secondaryhover"
+              className="inline-flex rounded-none bg-brandcolor-secondary px-6 py-3 text-sm font-semibold text-brandcolor-white transition-colors hover:bg-brandcolor-secondaryhover"
             >
               See how it works »
             </a>
             <a
               href="#signup"
-              className="inline-flex rounded-md bg-brandcolor-primary px-6 py-3 text-sm font-semibold text-brandcolor-textstrong transition-colors hover:bg-brandcolor-primaryhover"
+              className="inline-flex rounded-none bg-brandcolor-primary px-6 py-3 text-sm font-semibold text-brandcolor-textstrong transition-colors hover:bg-brandcolor-primaryhover"
             >
               Create a free account »
             </a>
@@ -697,7 +666,7 @@ export default function LandingPage() {
 
       <a
         href="#contact"
-        className="fixed bottom-5 right-5 z-40 flex size-11 items-center justify-center rounded-md bg-brandcolor-strokemild text-brandcolor-white shadow-lg transition-colors hover:bg-brandcolor-textweak"
+        className="fixed bottom-5 right-5 z-40 flex size-11 items-center justify-center rounded-none bg-brandcolor-strokemild text-brandcolor-white shadow-lg transition-colors hover:bg-brandcolor-textweak"
         aria-label="Open chat"
       >
         <RiChat1Line className="size-5" />
