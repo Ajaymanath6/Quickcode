@@ -2,7 +2,7 @@
   "name": "Theme Guide V2",
   "themeColors": {
     "brandcolor-primary": {
-      "hex": "#F5C251",
+      "hex": "#F6DA3E",
       "usage": "Main CTA button background, primary brand color",
       "utilityClasses": {
         "background": "bg-brandcolor-primary",
@@ -20,7 +20,7 @@
       ]
     },
     "brandcolor-primaryhover": {
-      "hex": "#F3B42A",
+      "hex": "#E2C435",
       "usage": "Hover state for primary buttons",
       "utilityClasses": {
         "background": "bg-brandcolor-primaryhover"
@@ -220,7 +220,7 @@
       ]
     },
     "brandcolor-banner-warning-button": {
-      "hex": "#F5C251",
+      "hex": "#F6DA3E",
       "usage": "Warning banner CTA",
       "utilityClasses": {
         "background": "bg-brandcolor-banner-warning-button",

@@ -13,7 +13,7 @@
         "active states",
         "primary actions"
       ],
-      "text": "brandcolor-primary (#F5C251): Main CTA button background, primary brand color. Classes: bg-brandcolor-primary, text-brandcolor-primary, border-brandcolor-primary."
+      "text": "brandcolor-primary (#F6DA3E): Main CTA button background, primary brand color. Classes: bg-brandcolor-primary, text-brandcolor-primary, border-brandcolor-primary."
     },
     {
       "id": "brandcolor-primaryhover",
@@ -23,7 +23,7 @@
         "brand",
         "primary button hover state"
       ],
-      "text": "brandcolor-primaryhover (#F3B42A): Hover state for primary buttons. Classes: bg-brandcolor-primaryhover."
+      "text": "brandcolor-primaryhover (#E2C435): Hover state for primary buttons. Classes: bg-brandcolor-primaryhover."
     },
     {
       "id": "brandcolor-secondary",
@@ -209,7 +209,7 @@
         "brand",
         "warning banner buttons"
       ],
-      "text": "brandcolor-banner-warning-button (#F5C251): Warning banner CTA. Classes: bg-brandcolor-banner-warning-button, text-brandcolor-white."
+      "text": "brandcolor-banner-warning-button (#F6DA3E): Warning banner CTA. Classes: bg-brandcolor-banner-warning-button, text-brandcolor-white."
     },
     {
       "id": "brandcolor-results-bg",

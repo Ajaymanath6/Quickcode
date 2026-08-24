@@ -4,8 +4,8 @@
 
 :root {
   /* Brand colors — space-separated RGB channels for Tailwind alpha support */
-  --color-brandcolor-primary: 245 194 81;
-  --color-brandcolor-primaryhover: 243 180 42;
+  --color-brandcolor-primary: 246 218 62;
+  --color-brandcolor-primaryhover: 226 196 53;
   --color-brandcolor-secondary: 17 152 237;
   --color-brandcolor-secondaryfill: 232 245 252;
   --color-brandcolor-secondaryhover: 14 129 201;
@@ -22,7 +22,7 @@
   --color-brandcolor-divider: 232 232 232;
   --color-brandcolor-banner-info-bg: 255 228 214;
   --color-brandcolor-banner-warning-bg: 255 235 225;
-  --color-brandcolor-banner-warning-button: 245 194 81;
+  --color-brandcolor-banner-warning-button: 246 218 62;
   --color-brandcolor-results-bg: 248 249 251;
   --color-brandcolor-archived-bg: 251 248 231;
   --color-brandcolor-archived-border: 165 165 165;

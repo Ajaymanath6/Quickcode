@@ -1,8 +1,8 @@
 from typing import Any, Dict, Optional
 
 DEFAULT_PALETTE = {
-    "primary": "#F5C251",
-    "primaryhover": "#F3B42A",
+    "primary": "#F6DA3E",
+    "primaryhover": "#E2C435",
     "secondary": "#1198ED",
     "secondaryfill": "#E8F5FC",
     "secondaryhover": "#0E81C9",
@@ -19,7 +19,7 @@ DEFAULT_PALETTE = {
     "divider": "#E8E8E8",
     "banner-info-bg": "#FFE4D6",
     "banner-warning-bg": "#FFEBE1",
-    "banner-warning-button": "#F5C251",
+    "banner-warning-button": "#F6DA3E",
     "results-bg": "#F8F9FB",
     "archived-bg": "#FBF8E7",
     "archived-border": "#A5A5A5",

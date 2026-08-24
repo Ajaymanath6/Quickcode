@@ -7,6 +7,7 @@ import LandingPage from '@/pages/landing'
 import Landing1Page from '@/pages/landing1'
 import Landing2Page from '@/pages/landing2'
 import Landing3Page from '@/pages/landing3'
+import Landing4Page from '@/pages/landing4'
 import CatalogAllPage from '@/pages/catalog/CatalogAllPage'
 import CatalogBookmarksPage from '@/pages/catalog/CatalogBookmarksPage'
 import CatalogHomePage from '@/pages/catalog/CatalogHomePage'
@@ -26,6 +27,7 @@ export default function App() {
           <Route path="/landing1" element={<Landing1Page />} />
           <Route path="/landing2" element={<Landing2Page />} />
           <Route path="/landing3" element={<Landing3Page />} />
+          <Route path="/landing4" element={<Landing4Page />} />
         </Route>
         <Route path="/admin" element={<Navigate to="/admin/canvas" replace />} />
         <Route path="/catalog" element={<Navigate to="/catalog/home" replace />} />
