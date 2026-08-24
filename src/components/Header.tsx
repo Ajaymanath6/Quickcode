@@ -12,7 +12,7 @@ const NAV_LINKS = [
 export default function Header() {
   return (
     <header className="shrink-0 border-b border-brandcolor-strokeweak bg-brandcolor-white font-lato">
-      <div className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+      <div className="relative mx-auto flex w-full max-w-7xl items-center justify-between py-3">
         <BrandLogo imgClassName="h-9 w-auto max-w-[200px] object-contain object-left" />
 
         <nav
@@ -33,13 +33,13 @@ export default function Header() {
         <div className="flex shrink-0 items-center gap-2 sm:gap-3">
           <a
             href="#signup"
-            className="rounded-none border border-brandcolor-primary bg-brandcolor-primary px-3 py-1.5 text-sm font-medium text-brandcolor-textstrong transition-colors hover:bg-brandcolor-primaryhover"
+            className="rounded-[0.3rem] border border-brandcolor-primary bg-brandcolor-primary px-3 py-1.5 text-sm font-medium text-brandcolor-textstrong transition-colors hover:bg-brandcolor-primaryhover"
           >
             Get started
           </a>
           <Link
             to="/catalog/home"
-            className="rounded-none border border-brandcolor-strokestrong px-3 py-1.5 text-sm font-medium text-brandcolor-textstrong transition-colors hover:bg-brandcolor-neutralhover"
+            className="rounded-[0.3rem] border border-brandcolor-strokestrong px-3 py-1.5 text-sm font-medium text-brandcolor-textstrong transition-colors hover:bg-brandcolor-neutralhover"
           >
             Login
           </Link>

@@ -3,9 +3,9 @@ from typing import Any, Dict, Optional
 DEFAULT_PALETTE = {
     "primary": "#F5C251",
     "primaryhover": "#F3B42A",
-    "secondary": "#2B6CB0",
-    "secondaryfill": "#EEF2F7",
-    "secondaryhover": "#23588F",
+    "secondary": "#1198ED",
+    "secondaryfill": "#E8F5FC",
+    "secondaryhover": "#0E81C9",
     "neutralhover": "#EFEFEF",
     "textstrong": "#333333",
     "textweak": "#696969",

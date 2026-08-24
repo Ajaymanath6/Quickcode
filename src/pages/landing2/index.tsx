@@ -205,6 +205,62 @@ const TRUSTED_LOGOS = [
   },
 ] as const
 
+const FEATURE_INTRO_CARDS = [
+  {
+    heading: 'Native documents & more',
+    description:
+      'Supports native documents, PSTs, MBOX, Load file productions, & more',
+    icon: RiFolderLine,
+    iconClass: 'text-[#E07A2F]',
+  },
+  {
+    heading: 'Automatic processing',
+    description: 'Automatic processing at no extra charge',
+    icon: RiSettings3Line,
+    iconClass: 'text-brandcolor-secondary',
+  },
+  {
+    heading: 'Transparent pricing',
+    description: 'Pay-as-you-go, transparent, and prorated pricing',
+    icon: RiMoneyDollarCircleLine,
+    iconClass: 'text-[#E6B422]',
+  },
+  {
+    heading: 'Unlimited collaborators',
+    description: 'Unlimited collaborators, no user fees',
+    icon: RiGroupLine,
+    iconClass: 'text-[#7B5EA7]',
+  },
+] as const
+
+/** Blue-header cards: 22px medium; accent phrases in secondary blue */
+const FEATURE_BLUE_CARDS = [
+  {
+    before: 'Supports ',
+    accent: 'native documents, PSTs, MBOX, Load file productions',
+    after: ', & more',
+    illustration: '/landing/feature-card-prorated.png',
+  },
+  {
+    before: '',
+    accent: 'Automatic processing',
+    after: ' at no extra charge',
+    illustration: null,
+  },
+  {
+    before: '',
+    accent: 'Pay-as-you-go, transparent, and prorated pricing',
+    after: '',
+    illustration: null,
+  },
+  {
+    before: '',
+    accent: 'Unlimited collaborators',
+    after: ', no user fees',
+    illustration: null,
+  },
+] as const
+
 const FEATURE_HIGHLIGHTS = [
   {
     title: 'Supports native documents, PSTs, MBOX, Load file productions, & more',
@@ -231,28 +287,28 @@ const FEATURE_CARD_ICONS = [
   { src: '/landing/feature-icon-lfp.png', alt: 'Load file production' },
 ] as const
 
-/** Bird mark on top; other format icons in a row below. */
+/** Bird mark on top; other format icons spread across below. */
 function FeatureFormatsGraphic() {
   return (
-    <div className="flex min-h-[200px] w-full flex-col items-center justify-center gap-5 sm:min-h-[220px]" aria-hidden>
+    <div className="flex h-full w-full flex-col items-center justify-between gap-6 py-2" aria-hidden>
       <img
         src="/landing/feature-icon-center.png"
         alt=""
-        className="h-16 w-16 object-contain sm:h-20 sm:w-20"
-        width={80}
-        height={80}
+        className="h-24 w-24 object-contain sm:h-28 sm:w-28"
+        width={112}
+        height={112}
         loading="lazy"
         decoding="async"
       />
-      <div className="flex w-full items-center justify-center gap-2.5">
+      <div className="flex w-full items-center justify-between gap-1 px-1">
         {FEATURE_CARD_ICONS.map((icon) => (
           <img
             key={icon.src}
             src={icon.src}
             alt=""
-            className="h-8 w-8 object-contain sm:h-9 sm:w-9"
-            width={36}
-            height={36}
+            className="h-12 w-12 object-contain sm:h-14 sm:w-14"
+            width={56}
+            height={56}
             loading="lazy"
             decoding="async"
           />
@@ -265,26 +321,26 @@ function FeatureFormatsGraphic() {
 /** Format icons (no center mark) + settings, conveying $0 processing. */
 function FeatureProcessingGraphic() {
   return (
-    <div className="flex min-h-[200px] w-full flex-col items-center justify-center gap-4 sm:min-h-[220px]" aria-hidden>
-      <div className="flex w-full flex-wrap items-center justify-center gap-2.5">
+    <div className="flex h-full w-full flex-col items-center justify-between gap-6 py-2" aria-hidden>
+      <div className="flex w-full items-center justify-between gap-1 px-1">
         {FEATURE_CARD_ICONS.map((icon) => (
           <img
             key={icon.src}
             src={icon.src}
             alt=""
-            className="h-8 w-8 object-contain sm:h-9 sm:w-9"
-            width={36}
-            height={36}
+            className="h-12 w-12 object-contain sm:h-14 sm:w-14"
+            width={56}
+            height={56}
             loading="lazy"
             decoding="async"
           />
         ))}
         <RiSettings3Line
-          className="size-8 text-brandcolor-textweak sm:size-9"
+          className="size-12 shrink-0 text-brandcolor-textweak sm:size-14"
           aria-hidden
         />
       </div>
-      <p className="font-catamaran text-4xl font-bold tracking-tight text-brandcolor-secondary sm:text-5xl">
+      <p className="font-catamaran text-5xl font-bold tracking-tight text-brandcolor-secondary sm:text-6xl">
         $0
       </p>
     </div>
@@ -296,6 +352,58 @@ function FeatureCardGraphic({ variant }: { variant: 'formats' | 'processing' }) 
     return <FeatureProcessingGraphic />
   }
   return <FeatureFormatsGraphic />
+}
+
+function FeatureBlueCardsRow({
+  keyPrefix,
+  replicateIllustrated = false,
+}: {
+  keyPrefix: string
+  /** Second row: four equal copies of the illustrated native-documents card */
+  replicateIllustrated?: boolean
+}) {
+  const cards = replicateIllustrated
+    ? Array.from({ length: 4 }, () => FEATURE_BLUE_CARDS[0])
+    : FEATURE_BLUE_CARDS
+
+  return (
+    <div className="grid w-full gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      {cards.map((item, index) => {
+        const showIllustration = Boolean(replicateIllustrated && item.illustration)
+        return (
+          <article
+            key={`${keyPrefix}-${index}-${item.accent}`}
+            className="flex h-full w-full min-w-0 flex-col overflow-hidden rounded-[0.5rem] border border-brandcolor-strokeweak bg-brandcolor-white"
+          >
+            <div
+              className={`feature-card-blue-top relative w-full shrink-0 ${
+                showIllustration ? 'h-40 sm:h-44' : 'h-28 sm:h-32'
+              }`}
+            >
+              {showIllustration && item.illustration ? (
+                <img
+                  src={item.illustration}
+                  alt=""
+                  className="absolute inset-0 z-[1] h-full w-full object-contain object-center p-2 sm:p-3"
+                  width={561}
+                  height={267}
+                  loading="lazy"
+                  decoding="async"
+                />
+              ) : null}
+            </div>
+            <div className="flex flex-1 flex-col p-6">
+              <p className="font-lato text-[22px] font-medium leading-snug tracking-[-0.01em] text-brandcolor-textstrong">
+                {item.before}
+                <span className="text-brandcolor-secondary">{item.accent}</span>
+                {item.after}
+              </p>
+            </div>
+          </article>
+        )
+      })}
+    </div>
+  )
 }
 
 function SectionTitle({ children }: { children: string }) {
@@ -334,7 +442,7 @@ function YellowCta({ href, children }: { href: string; children: string }) {
   return (
     <a
       href={href}
-      className="mt-8 inline-flex rounded-none bg-brandcolor-primary px-6 py-3 text-sm font-semibold text-brandcolor-textstrong transition-colors hover:bg-brandcolor-primaryhover"
+      className="mt-8 inline-flex rounded-[0.3rem] bg-brandcolor-primary px-6 py-3 text-sm font-semibold text-brandcolor-textstrong transition-colors hover:bg-brandcolor-primaryhover"
     >
       {children}
     </a>
@@ -346,13 +454,13 @@ function CtaPair() {
     <div className="mt-14 flex flex-wrap items-center justify-center gap-4">
       <a
         href="#how-it-works"
-        className="inline-flex rounded-none bg-brandcolor-secondary px-6 py-3 text-sm font-semibold text-brandcolor-white transition-colors hover:bg-brandcolor-secondaryhover"
+        className="inline-flex rounded-[0.3rem] bg-brandcolor-secondary px-6 py-3 text-sm font-semibold text-brandcolor-white transition-colors hover:bg-brandcolor-secondaryhover"
       >
         See how it works »
       </a>
       <a
         href="#signup"
-        className="inline-flex rounded-none bg-brandcolor-primary px-6 py-3 text-sm font-semibold text-brandcolor-textstrong transition-colors hover:bg-brandcolor-primaryhover"
+        className="inline-flex rounded-[0.3rem] bg-brandcolor-primary px-6 py-3 text-sm font-semibold text-brandcolor-textstrong transition-colors hover:bg-brandcolor-primaryhover"
       >
         Create a free account »
       </a>
@@ -368,13 +476,13 @@ export default function LandingPage() {
     <div className="font-lato">
       <section
         id="features"
-        className="landing-hero relative isolate overflow-hidden px-4 py-24 text-brandcolor-white sm:px-8"
+        className="landing-hero relative isolate overflow-hidden px-4 py-24 text-brandcolor-white sm:px-6 lg:px-8"
       >
         <div className="pointer-events-none absolute inset-0 -z-10 bg-[#1a1a1a]" aria-hidden />
         <div className="landing-hero-waves pointer-events-none absolute inset-0 -z-10 opacity-40" aria-hidden />
 
-        <div className="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-2 md:gap-12">
-          <div className="text-left">
+        <div className="mx-auto grid w-full max-w-7xl items-center gap-10 md:grid-cols-2 md:gap-12 lg:gap-16">
+          <div className="text-left md:pr-4">
             <h1 className="font-catamaran text-[clamp(1.5rem,3.2vw,2.75rem)] font-medium leading-tight tracking-[-0.02em] text-brandcolor-white">
               Powerful eDiscovery. Without the enterprise price tag.
             </h1>
@@ -387,14 +495,14 @@ export default function LandingPage() {
               <a
                 id="signup"
                 href="#signup"
-                className="inline-flex rounded-none border border-brandcolor-primary/90 bg-transparent px-6 py-3 text-sm font-semibold text-brandcolor-primary transition-colors hover:bg-brandcolor-primary/10"
+                className="inline-flex rounded-[0.3rem] border border-brandcolor-primary/90 bg-transparent px-6 py-3 text-sm font-semibold text-brandcolor-primary transition-colors hover:bg-brandcolor-primary/10"
               >
                 Start your free case →
               </a>
               <a
                 id="schedule-demo"
                 href="#schedule-demo"
-                className="inline-flex rounded-none border border-brandcolor-white bg-brandcolor-white px-6 py-3 text-sm font-semibold text-brandcolor-textstrong transition-colors hover:bg-brandcolor-fill"
+                className="inline-flex rounded-[0.3rem] border border-brandcolor-white bg-brandcolor-white px-6 py-3 text-sm font-semibold text-brandcolor-textstrong transition-colors hover:bg-brandcolor-fill"
               >
                 Get started
               </a>
@@ -416,10 +524,11 @@ export default function LandingPage() {
       </section>
 
       <section
-        className="relative overflow-hidden bg-[#1a1a1a] px-4 py-[110px] text-brandcolor-white sm:px-8"
+        className="landing-trusted relative overflow-hidden bg-[#1a1a1a] px-4 py-[110px] text-brandcolor-white sm:px-6 lg:px-8"
         aria-labelledby="trusted-by-heading"
       >
-        <div className="mx-auto max-w-5xl text-center">
+        <div className="landing-hero-waves pointer-events-none absolute inset-0 opacity-25" aria-hidden />
+        <div className="relative z-[1] mx-auto max-w-5xl text-center">
           <h2
             id="trusted-by-heading"
             className="font-catamaran text-[14px] font-bold tracking-tight text-brandcolor-white"
@@ -433,7 +542,7 @@ export default function LandingPage() {
           </p>
         </div>
 
-        <div className="landing-logo-marquee-fade mt-12 overflow-hidden">
+        <div className="landing-logo-marquee-fade relative z-[1] mt-12 overflow-hidden">
           <div className="landing-logo-marquee flex w-max items-center gap-16 pr-16">
             {[...TRUSTED_LOGOS, ...TRUSTED_LOGOS].map((logo, index) => (
               <img
@@ -453,19 +562,135 @@ export default function LandingPage() {
 
       <section
         id="why"
-        className="landing-pattern relative px-4 py-16 text-brandcolor-textstrong sm:px-8 sm:py-20"
+        className="landing-pattern relative px-4 py-16 text-brandcolor-textstrong sm:px-6 sm:py-20 lg:px-8"
       >
-        <div className="mx-auto max-w-6xl">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto w-full max-w-7xl">
+          <div className="grid w-full gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {FEATURE_INTRO_CARDS.map((item) => {
+              const Icon = item.icon
+              return (
+                <article
+                  key={item.heading}
+                  className="flex h-full w-full flex-col rounded-[0.5rem] border border-brandcolor-strokeweak bg-brandcolor-white p-6"
+                >
+                  <Icon
+                    className={`size-10 shrink-0 ${item.iconClass}`}
+                    aria-hidden
+                  />
+                  <h3 className="mt-4 font-catamaran text-[22px] font-semibold leading-snug text-brandcolor-textstrong sm:text-2xl">
+                    {item.heading}
+                  </h3>
+                  <p className="mt-3 font-lato text-sm leading-relaxed tracking-[-0.01em] text-brandcolor-textweak sm:text-[15px]">
+                    {item.description}
+                  </p>
+                </article>
+              )
+            })}
+          </div>
+
+          <div className="mt-12 grid w-full gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {FEATURE_INTRO_CARDS.map((item) => {
+              const Icon = item.icon
+              return (
+                <article
+                  key={`no-heading-${item.heading}`}
+                  className="flex h-full w-full min-w-0 flex-col rounded-[0.5rem] border border-brandcolor-strokeweak bg-brandcolor-white p-6"
+                >
+                  <Icon
+                    className={`size-10 shrink-0 ${item.iconClass}`}
+                    aria-hidden
+                  />
+                  <p className="mt-4 font-lato text-sm leading-relaxed tracking-[-0.01em] text-brandcolor-textweak sm:text-[15px]">
+                    {item.description}
+                  </p>
+                </article>
+              )
+            })}
+          </div>
+
+          <div className="mt-12 grid w-full gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {FEATURE_INTRO_CARDS.map((item) => {
+              const Icon = item.icon
+              return (
+                <article
+                  key={`no-heading-lg-${item.heading}`}
+                  className="flex h-full w-full min-w-0 flex-col rounded-[0.5rem] border border-brandcolor-strokeweak bg-brandcolor-white p-6"
+                >
+                  <Icon
+                    className={`size-8 shrink-0 ${item.iconClass}`}
+                    aria-hidden
+                  />
+                  <p className="mt-4 font-lato text-[22px] font-medium leading-snug tracking-[-0.01em] text-brandcolor-textstrong">
+                    {item.description}
+                  </p>
+                </article>
+              )
+            })}
+          </div>
+
+          <div className="mt-12 grid w-full gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {FEATURE_INTRO_CARDS.map((item) => {
+              const Icon = item.icon
+              return (
+                <article
+                  key={`inline-${item.heading}`}
+                  className="flex h-full w-full min-w-0 items-start gap-2 rounded-[0.5rem] border border-brandcolor-strokeweak bg-brandcolor-white p-6"
+                >
+                  <Icon
+                    className={`size-8 shrink-0 ${item.iconClass}`}
+                    aria-hidden
+                  />
+                  <p className="min-w-0 flex-1 font-lato text-[22px] font-medium leading-snug tracking-[-0.01em] text-brandcolor-textstrong">
+                    {item.description}
+                  </p>
+                </article>
+              )
+            })}
+          </div>
+
+          <div className="mt-12 grid w-full gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {FEATURE_INTRO_CARDS.map((item) => {
+              const Icon = item.icon
+              return (
+                <article
+                  key={`desc-${item.heading}`}
+                  className="flex h-full min-h-[280px] w-full min-w-0 flex-col rounded-[0.5rem] border border-brandcolor-strokeweak bg-brandcolor-white p-6"
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <p className="flex-1 text-left font-lato text-sm leading-relaxed tracking-[-0.01em] text-brandcolor-textweak sm:text-[15px]">
+                      {item.description}
+                    </p>
+                    <Icon
+                      className={`size-10 shrink-0 ${item.iconClass}`}
+                      aria-hidden
+                    />
+                  </div>
+                  <div
+                    className="mt-6 min-h-[140px] flex-1 rounded-[0.5rem] bg-brandcolor-white"
+                    aria-hidden
+                  />
+                </article>
+              )
+            })}
+          </div>
+
+          <div className="mt-12">
+            <FeatureBlueCardsRow keyPrefix="blue-a" />
+          </div>
+
+          <div className="mt-12">
+            <FeatureBlueCardsRow keyPrefix="blue-b" replicateIllustrated />
+          </div>
+
+          <div className="mt-12 grid w-full gap-3 sm:grid-cols-2">
             {FEATURE_HIGHLIGHTS.map((item) => (
-              <article
-                key={item.title}
-                className="flex h-full min-h-[340px] flex-col border border-brandcolor-strokeweak bg-brandcolor-white p-6 sm:min-h-[380px]"
-              >
-                <div className="flex flex-1 flex-col justify-start">
-                  <FeatureCardGraphic variant={item.graphic} />
+              <article key={item.title} className="flex h-full w-full min-w-0 flex-col">
+                <div className="group flex h-[300px] w-full items-center justify-center overflow-hidden rounded-[0.5rem] border border-brandcolor-strokeweak bg-brandcolor-white p-5 sm:h-[320px]">
+                  <div className="flex h-full w-full transition-transform duration-300 ease-out group-hover:scale-110">
+                    <FeatureCardGraphic variant={item.graphic} />
+                  </div>
                 </div>
-                <p className="mt-auto pt-5 font-lato text-[16px] font-semibold leading-snug text-brandcolor-textstrong">
+                <p className="mt-4 min-h-[4.5rem] font-lato text-[16px] font-semibold leading-snug tracking-[-0.01em] text-brandcolor-textstrong">
                   {item.title}
                 </p>
               </article>
@@ -507,13 +732,13 @@ export default function LandingPage() {
           <div className="mt-14 flex flex-wrap items-center justify-center gap-4">
             <a
               href="#how-it-works"
-              className="inline-flex rounded-none bg-brandcolor-secondary px-6 py-3 text-sm font-semibold text-brandcolor-white transition-colors hover:bg-brandcolor-secondaryhover"
+              className="inline-flex rounded-[0.3rem] bg-brandcolor-secondary px-6 py-3 text-sm font-semibold text-brandcolor-white transition-colors hover:bg-brandcolor-secondaryhover"
             >
               See how it works »
             </a>
             <a
               href="#signup"
-              className="inline-flex rounded-none bg-brandcolor-primary px-6 py-3 text-sm font-semibold text-brandcolor-textstrong transition-colors hover:bg-brandcolor-primaryhover"
+              className="inline-flex rounded-[0.3rem] bg-brandcolor-primary px-6 py-3 text-sm font-semibold text-brandcolor-textstrong transition-colors hover:bg-brandcolor-primaryhover"
             >
               Create a free account »
             </a>
@@ -841,7 +1066,7 @@ export default function LandingPage() {
 
       <a
         href="#contact"
-        className="fixed bottom-5 right-5 z-40 flex size-11 items-center justify-center rounded-none bg-brandcolor-strokemild text-brandcolor-white shadow-lg transition-colors hover:bg-brandcolor-textweak"
+        className="fixed bottom-5 right-5 z-40 flex size-11 items-center justify-center rounded-[0.3rem] bg-brandcolor-strokemild text-brandcolor-white shadow-lg transition-colors hover:bg-brandcolor-textweak"
         aria-label="Open chat"
       >
         <RiChat1Line className="size-5" />

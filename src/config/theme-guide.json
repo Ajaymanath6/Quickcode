@@ -34,7 +34,7 @@
       "logic": "When background is brandcolor-primary, hover uses brandcolor-primaryhover"
     },
     "brandcolor-secondary": {
-      "hex": "#2B6CB0",
+      "hex": "#1198ED",
       "usage": "Secondary brand color for outline/secondary buttons",
       "utilityClasses": {
         "background": "bg-brandcolor-secondary",
@@ -47,7 +47,7 @@
       ]
     },
     "brandcolor-secondaryfill": {
-      "hex": "#EEF2F7",
+      "hex": "#E8F5FC",
       "usage": "Secondary fill for active/selected light backgrounds",
       "utilityClasses": {
         "background": "bg-brandcolor-secondaryfill"
@@ -58,7 +58,7 @@
       ]
     },
     "brandcolor-secondaryhover": {
-      "hex": "#23588F",
+      "hex": "#0E81C9",
       "usage": "Hover for secondary filled buttons",
       "utilityClasses": {
         "background": "bg-brandcolor-secondaryhover"

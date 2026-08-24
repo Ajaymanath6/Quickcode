@@ -34,7 +34,7 @@
         "secondary button background",
         "outline button border and text"
       ],
-      "text": "brandcolor-secondary (#2B6CB0): Secondary brand color for outline/secondary buttons. Classes: bg-brandcolor-secondary, text-brandcolor-secondary, border-brandcolor-secondary."
+      "text": "brandcolor-secondary (#1198ED): Secondary brand color for outline/secondary buttons. Classes: bg-brandcolor-secondary, text-brandcolor-secondary, border-brandcolor-secondary."
     },
     {
       "id": "brandcolor-secondaryfill",
@@ -45,7 +45,7 @@
         "active secondary controls",
         "selected pill backgrounds"
       ],
-      "text": "brandcolor-secondaryfill (#EEF2F7): Secondary fill for active/selected light backgrounds. Classes: bg-brandcolor-secondaryfill."
+      "text": "brandcolor-secondaryfill (#E8F5FC): Secondary fill for active/selected light backgrounds. Classes: bg-brandcolor-secondaryfill."
     },
     {
       "id": "brandcolor-secondaryhover",
@@ -55,7 +55,7 @@
         "brand",
         "secondary button hover"
       ],
-      "text": "brandcolor-secondaryhover (#23588F): Hover for secondary filled buttons. Classes: bg-brandcolor-secondaryhover."
+      "text": "brandcolor-secondaryhover (#0E81C9): Hover for secondary filled buttons. Classes: bg-brandcolor-secondaryhover."
     },
     {
       "id": "brandcolor-neutralhover",
