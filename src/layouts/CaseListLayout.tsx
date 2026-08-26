@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { Link } from 'react-router-dom'
 import CaseListTable, { CASE_LIST_COUNT } from '@/components/CaseListTable'
 import CaseSearchBar from '@/components/CaseSearchBar'
 import GoogleDuotoneIcon from '@/components/GoogleDuotoneIcon'
@@ -28,13 +29,13 @@ export default function CaseListLayout({ children }: CaseListLayoutProps) {
             <span className="text-base text-brandcolor-textstrong">cases</span>
           </div>
 
-          <button
-            type="button"
+          <Link
+            to="/new-case"
             className="inline-flex items-center gap-1.5 rounded-md bg-brandcolor-secondary px-4 py-2 text-sm font-semibold text-brandcolor-white transition-colors hover:bg-brandcolor-secondaryhover"
           >
             <GoogleDuotoneIcon name="add" className="text-[18px] !text-brandcolor-white" />
             Add new case
-          </button>
+          </Link>
         </div>
 
         <CaseListTable />

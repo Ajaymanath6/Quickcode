@@ -16,7 +16,7 @@ type AppHeaderProps = {
 
 export default function AppHeader({
   initials = 'GF',
-  avatarClassName = 'bg-brandcolor-secondary',
+  avatarClassName = 'bg-[#DC143C]',
 }: AppHeaderProps) {
   const { pathname } = useLocation()
   const homeActive = pathname === '/case'
