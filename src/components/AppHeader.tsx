@@ -40,10 +40,21 @@ export default function AppHeader({
         >
           <Link
             to="/case"
-            className={`${NAV_ITEM_CLASS} ${homeActive ? 'font-medium' : ''}`}
+            className={`${NAV_ITEM_CLASS} ${
+              homeActive
+                ? 'font-medium !text-brandcolor-textstrong'
+                : ''
+            }`}
             aria-current={homeActive ? 'page' : undefined}
           >
-            <GoogleDuotoneIcon name="home" className="text-[20px] !text-brandcolor-strokestrong" />
+            <GoogleDuotoneIcon
+              name="home"
+              className={`text-[20px] ${
+                homeActive
+                  ? '!text-brandcolor-textstrong'
+                  : '!text-brandcolor-strokestrong'
+              }`}
+            />
             Home
           </Link>
           {PLACEHOLDER_NAV.map(({ label, icon }) => (
