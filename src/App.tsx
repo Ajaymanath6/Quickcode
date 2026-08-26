@@ -8,6 +8,8 @@ import Landing1Page from '@/pages/landing1'
 import Landing2Page from '@/pages/landing2'
 import Landing3Page from '@/pages/landing3'
 import Landing4Page from '@/pages/landing4'
+import CasePage from '@/pages/case'
+import LoadingPage from '@/pages/loading'
 import CatalogAllPage from '@/pages/catalog/CatalogAllPage'
 import CatalogBookmarksPage from '@/pages/catalog/CatalogBookmarksPage'
 import CatalogHomePage from '@/pages/catalog/CatalogHomePage'
@@ -22,6 +24,8 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Navigate to="/landing" replace />} />
+        <Route path="/loading" element={<LoadingPage />} />
+        <Route path="/case" element={<CasePage />} />
         <Route element={<MainLayout />}>
           <Route path="/landing" element={<LandingPage />} />
           <Route path="/landing1" element={<Landing1Page />} />

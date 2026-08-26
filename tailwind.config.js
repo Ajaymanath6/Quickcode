@@ -210,6 +210,7 @@ export default {
         'border-inset-secondary-press':
           'var(--shadow-border-inset-secondary-press)',
         header: 'var(--shadow-header)',
+        'app-header': 'var(--shadow-app-header)',
         'tab-option': 'var(--shadow-tab-option)',
         card: 'var(--shadow-card)',
         'sidebar-toggle': 'var(--shadow-sidebar-toggle)',

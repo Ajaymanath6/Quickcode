@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import BrandLogo from '@/components/BrandLogo'
 
 const NAV_LINKS = [
@@ -10,6 +10,9 @@ const NAV_LINKS = [
 ] as const
 
 export default function Header() {
+  const { pathname } = useLocation()
+  const loginTo = pathname === '/landing4' ? '/loading' : '/catalog/home'
+
   return (
     <header className="shrink-0 border-b border-brandcolor-strokeweak bg-brandcolor-white font-lato">
       <div className="relative mx-auto flex w-full max-w-7xl items-center justify-between py-3">
@@ -38,7 +41,7 @@ export default function Header() {
             Get started
           </a>
           <Link
-            to="/catalog/home"
+            to={loginTo}
             className="rounded-[0.3rem] border border-brandcolor-strokestrong px-3 py-1.5 text-sm font-medium text-brandcolor-textstrong transition-colors hover:bg-brandcolor-neutralhover"
           >
             Login
