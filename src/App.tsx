@@ -1,4 +1,4 @@
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes, useParams } from 'react-router-dom'
 import CatalogLayout from '@/layouts/CatalogLayout'
 import MainLayout from '@/layouts/MainLayout'
 import ThemeConfigurationLayout from '@/layouts/ThemeConfigurationLayout'
@@ -9,6 +9,7 @@ import Landing2Page from '@/pages/landing2'
 import Landing3Page from '@/pages/landing3'
 import Landing4Page from '@/pages/landing4'
 import CasePage from '@/pages/case'
+import CaseDetailPage from '@/pages/case-detail'
 import LoadingPage from '@/pages/loading'
 import NewCasePage from '@/pages/new-case'
 import CatalogAllPage from '@/pages/catalog/CatalogAllPage'
@@ -19,6 +20,12 @@ import ThemeColorsPanel from '@/pages/theme/ThemeColorsPanel'
 import ThemeShadowsPanel from '@/pages/theme/ThemeShadowsPanel'
 import ThemeSpacingPanel from '@/pages/theme/ThemeSpacingPanel'
 import ThemeTypographyPanel from '@/pages/theme/ThemeTypographyPanel'
+import { DEFAULT_CASE_SECTION } from '@/data/caseSections'
+
+function CaseDetailIndexRedirect() {
+  const { caseId } = useParams()
+  return <Navigate to={`/case-detail/${caseId}/${DEFAULT_CASE_SECTION}`} replace />
+}
 
 export default function App() {
   return (
@@ -27,6 +34,8 @@ export default function App() {
         <Route path="/" element={<Navigate to="/landing" replace />} />
         <Route path="/loading" element={<LoadingPage />} />
         <Route path="/case" element={<CasePage />} />
+        <Route path="/case-detail/:caseId" element={<CaseDetailIndexRedirect />} />
+        <Route path="/case-detail/:caseId/:section" element={<CaseDetailPage />} />
         <Route path="/new-case" element={<NewCasePage />} />
         <Route element={<MainLayout />}>
           <Route path="/landing" element={<LandingPage />} />
