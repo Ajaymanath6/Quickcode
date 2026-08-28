@@ -47,21 +47,10 @@ export default function AppHeader({
           {isCaseDetail && breadcrumbs ? (
             <nav className="min-w-0 overflow-hidden" aria-label="Breadcrumb">
               <ol className="flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1 text-sm">
-                <li className="shrink-0">
-                  <Link
-                    to="/case"
-                    className="text-brandcolor-textweak transition-colors hover:text-brandcolor-secondary"
-                  >
-                    Home
-                  </Link>
-                </li>
-                <li className="shrink-0 text-brandcolor-strokeweak" aria-hidden>
-                  /
-                </li>
                 <li className="min-w-0 truncate">
                   <Link
                     to={`/case-detail/${breadcrumbs.caseId}/start-here`}
-                    className="text-brandcolor-textweak transition-colors hover:text-brandcolor-secondary"
+                    className="font-catamaran text-brandcolor-textweak transition-colors hover:text-brandcolor-secondary"
                     title={breadcrumbs.caseName}
                   >
                     {breadcrumbs.caseName}
